@@ -1,4 +1,4 @@
-# Template for defining a new schema that will be templated out to work with this theme.
+# Template for defining a new content schema that will work with this theme.
 
 # Content Type Name (e.g. Article, Person, FAQ)
 
