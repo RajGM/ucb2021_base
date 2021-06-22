@@ -1,0 +1,14 @@
+{#
+/**
+ * Theme layout to display a UCB Organization Email field.
+ *
+ * Created by jsparks on 7/8/19
+ */
+#}
+
+{% for item in items %}
+    <span itemprop="email">
+      <i class="fas fa-envelope"></i>
+      <a href="mailto:{{ item.content|render|striptags|trim }}">Email</a>
+    </span>
+{% endfor %}

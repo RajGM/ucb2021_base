@@ -1,0 +1,304 @@
+{#
+/**
+ * Theme layout to display a UCB Organization Page.
+ *
+ * Created by jsparks on 7/8/19
+ */
+#}
+
+{{ attach_library('ucb2021_base/ucb-organization-page') }}
+
+{%
+  set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+]
+%}
+
+{% set parentOrgURL =
+  url('<front>')|render|trim('/') ~
+  "/jsonapi/node/organization" ~
+  "?filter[parent][group][conjunction]=AND" ~
+
+  "&filter[parent-filter][condition][path]=field_ucb_org_children_org.id" ~
+  "&filter[parent-filter][condition][operator]=CONTAINS" ~
+  "&filter[parent-filter][condition][value]="~ uuid  ~
+  "&filter[parent-filter][condition][memberOf]=parent"
+
+%}
+
+{% set guidesURL=
+  url('<front>')|render|trim('/') ~
+  "/jsonapi/node/ucb_guide" ~
+  "?filter[self][group][conjunction]=AND" ~
+
+  "&filter[self-filter][condition][path]=field_ucb_guide_organization.id" ~
+  "&filter[self-filter][condition][operator]=CONTAINS" ~
+  "&filter[self-filter][condition][value]="~ uuid  ~
+  "&filter[self-filter][condition][memberOf]=self"
+
+%}
+
+{#Dummy variable to ensure that all content tags are set for caching purposes#}
+{% set content_render = content|render %}
+
+<article{{attributes.addClass(classes)}}>
+  <div itemscope itemtype="https://schema.org/Organization" class="ucb-org-organization-container container">
+    {#            <h3>Entity ID is : {{ uuid }} </h3>#}
+    <div class="ucb-org-header row">
+      <div class="ucb-org-header col">
+        <div id="vue-parent-org" class="hidden">
+          <ucb-parent-org dataurl="{{ parentOrgURL }}" inline-template>
+            <div>
+              <div v-for="parent in posts">
+                  <span class="ucb-org-relation ucb-org-parent-org" v-if="parent.attributes.title">
+                      Part of <a :href="`{{ url('<front>')|render|trim('/') }}${parent.attributes.path.alias}`" itemprop="parentOrganization" v-html="parent.attributes.title"></a>
+                  </span>
+              </div>
+            </div>
+          </ucb-parent-org>
+        </div>
+        {% if content.field_ucb_org_ancestor_org|render %}
+          {{ content.field_ucb_org_ancestor_org }}
+        {% endif %}
+      </div>
+    </div>
+    <div class="ucb-org-content-row row">
+      <section class="ucb-org-content-section col-md-7">
+        {% if content.field_ucb_org_description %}
+          <div itemprop="description" class="ucb-org-description">
+            {{ content.field_ucb_org_description|render }}
+          </div>
+        {% endif %}
+
+        <div class="row ucb-org-contact-info-row">
+          <div class="ucb-org-contact-info col-md-12 col-lg">
+            <h2>Contact Information</h2>
+            <ul class="ucb-org-contact-buttons-list">
+              {% if content.field_ucb_org_telephone|render %}
+                <li>{{ content.field_ucb_org_telephone }}</li>
+              {% endif %}
+              {% if content.field_ucb_org_fax_number|render %}
+                <li>{{ content.field_ucb_org_fax_number }}</li>
+              {% endif %}
+              {% if content.field_ucb_org_email|render %}
+                <li>{{ content.field_ucb_org_email }}</li>
+              {% endif %}
+              {% if content.field_ucb_org_website_url|render %}
+                <li>{{ content.field_ucb_org_website_url }}</li>
+              {% endif %}
+              {% if content.field_ucb_org_directory_url|render %}
+                <li>{{ content.field_ucb_org_directory_url }}</li>
+              {% endif %}
+            </ul>
+          </div>
+
+          {% if content.field_ucb_org_social_contact|render %}
+            <div class="ucb-org-social-div col-md-12 col-lg">
+              <h2>Social</h2>
+              <ul class="ucb-org-social-list">
+                {{ content.field_ucb_org_social_contact }}
+              </ul>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="row ucb-org-addition-info-row">
+
+          {% if content.field_ucb_org_additional_contact|render %}
+            <div class="ucb-org-addtional-contacts col-md-12 col-lg">
+              <h2>Additional Contacts</h2>
+              <ul class="ucb-org-additional-contact-list list-style-none">
+                {{ content.field_ucb_org_additional_contact }}
+              </ul>
+            </div>
+          {% endif %}
+
+          {% if content.field_ucb_org_additional_links|render %}
+            <div class="ucb-org-additional-links col-md-12 col-lg">
+              <h2>Links</h2>
+              <ul class="ucb-org-additional-links list-style-none">
+                {{ content.field_ucb_org_additional_links }}
+              </ul>
+            </div>
+          {% endif %}
+        </div>
+
+      </section>
+      <section class="ucb-org-address-section col-md-5">
+        {% if content.field_ucb_org_id_campus_map|render %}
+          {% set mapURL = "https://www.colorado.edu/map/?id=336#!m/" ~ content.field_ucb_org_id_campus_map|render|striptags|trim %}
+          <div class="ucb-org-map-embed">
+            <a href="{{ mapURL }}" style="display:block; width:100%; height:300px; background-size: cover; background-image:url(https://staticmap.concept3d.com/map/static-map/?map=336&loc={{ content.field_ucb_org_id_campus_map|render|striptags|trim }});">
+                    <span class="embed-map-label">
+                        View location on the Campus Map
+                    </span>
+            </a>
+          </div>
+        {% endif %}
+        <section itemprop="address" itemscope itemtype="https://schema.org/PostaAddress" class="ucb-org-address-details">
+          <ul class="ucb-org-address-list">
+            {% if content.field_ucb_org_street_address|render or content.field_ucb_org_address_locality|render or content.field_ucb_org_address_region|render %}
+              <li>Mailing Address</li>
+              <ul class="ucb-org-address-list-details">
+                {% if content.field_ucb_org_street_address|render %}
+                  <li><span itemprop="streetAddress">{{ content.field_ucb_org_street_address|render|striptags|trim }}</span></li>
+                {% endif %}
+                {% if content.field_ucb_org_address_locality|render and content.field_ucb_org_address_region|render%}
+                  <li><span itemprop="addressLocality">{{ content.field_ucb_org_address_locality|render|striptags|trim }}</span>,
+                  <span itemprop="addressRegion">{{ content.field_ucb_org_address_region|render|striptags|trim }}</span>
+                  <span itemprop="postalCode">{{ content.field_ucb_org_postal_code|render|striptags|trim }}</span></li>
+                {% else %}
+                  {% if content.field_ucb_org_address_locality|render %}
+                    <li><span itemprop="addressLocality">{{ content.field_ucb_org_address_locality|render|striptags|trim }}</span></li>
+                  {% endif %}
+                  {% if content.field_ucb_org_address_region|render %}
+                    <li><span itemprop="addressRegion">{{ content.field_ucb_org_address_region|render|striptags|trim }}</span>
+                    <span itemprop="postalCode">{{ content.field_ucb_org_postal_code|render|striptags|trim }}</span></li>
+                  {% endif %}
+                {% endif %}
+                {% if content.field_ucb_org_address_country|render %}
+                  <li><span itemprop="addressCountry">{{ content.field_ucb_org_address_country|render|striptags|trim }}</span></li>
+                {% endif %}
+              </ul>
+            {% endif %}
+            {% if content.field_ucb_org_campus_mail_box|render %}
+              <li>Campus Mail Box </li>
+              <ul class="ucb-org-address-list-details">
+                <li>{{ content.field_ucb_org_campus_mail_box|render|striptags|trim }}</li>
+              </ul>
+            {% endif %}
+            {% if content.field_ucb_org_location_desc|render %}
+              <li>Address Notes</li>
+              <ul class="ucb-org-address-list-details">
+                <li>{{ content.field_ucb_org_location_desc|render|striptags|trim }}</li>
+              </ul>
+            {% endif %}
+          </ul>
+        </section>
+
+        {% if content.field_ucb_org_related_org|render %}
+          {{ content.field_ucb_org_related_org }}
+        {% endif %}
+
+      </section>
+    </div>
+
+    {% if content.field_ucb_org_children_org|render %}
+      <h2>Sub-Divisions of {{ label }}</h2>
+      <div class="ucb-org-children-org row">
+        {{ content.field_ucb_org_children_org }}
+      </div>
+    {% endif %}
+
+
+    <section class="ucb-org-addtional-content-section hidden">
+      <h3 class="text-center">Guides</h3>
+      <div class="ucb-org-guides">
+        <div id="vue-guides-org">
+          <ucb-guides-org dataurl="{{ guidesURL}}" inline-template>
+            <div class="row">
+              <div v-for="guide in guides" class="col-md-6 col-lg-4 col-sm-12">
+                <div class="ucb-org-guide-data">
+                  <a :href="`{{ url('<front>')|render|trim('/') }}${guide.attributes.path.alias}`" class="ucb-org-guide-link">
+                    <i :class="`fa-2x ${guide.attributes.field_ucb_guide_icon}`" v-if="guide.attributes.field_ucb_guide_icon"></i>
+                    <span v-html="guide.attributes.title"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </ucb-guides-org>
+        </div>
+      </div>
+    </section>
+
+
+
+    {#        <div class="ucb-org-related-orgs row">#}
+    {#            <div class="ucb-org-children-orgs col">#}
+
+    {#                {% set promotedChildrenURL =#}
+    {#                    "http://localhost/boulder/web/jsonapi/node/organization" ~#}
+    {#                    "?filter[children][group][conjunction]=AND" ~#}
+
+    {#                    "&filter[parent-filter][condition][path]=field_ucb_org_parent_org.id" ~#}
+    {#                    "&filter[parent-filter][condition][operator]=CONTAINS" ~#}
+    {#                    "&filter[parent-filter][condition][value]="~ uuid  ~#}
+    {#                    "&filter[parent-filter][condition][memberOf]=children" ~#}
+
+    {#                    "&filter[status][condition][path]=field_ucb_org_visibility" ~#}
+    {#                    "&filter[status][condition][operator]=%3D" ~#}
+    {#                    "&filter[status][condition][value]=Promoted" ~#}
+    {#                    "&filter[status][condition][memberOf]=children"#}
+    {#                %}#}
+
+    {#                {% set standardChildrenURL =#}
+    {#                    "http://localhost/boulder/web/jsonapi/node/organization" ~#}
+    {#                    "?filter[children][group][conjunction]=AND" ~#}
+
+    {#                    "&filter[parent-filter][condition][path]=field_ucb_org_parent_org.id" ~#}
+    {#                    "&filter[parent-filter][condition][operator]=CONTAINS" ~#}
+    {#                    "&filter[parent-filter][condition][value]="~ uuid  ~#}
+    {#                    "&filter[parent-filter][condition][memberOf]=children" ~#}
+
+    {#                    "&filter[status][condition][path]=field_ucb_org_visibility" ~#}
+    {#                    "&filter[status][condition][operator]=%3D" ~#}
+    {#                    "&filter[status][condition][value]=Standard" ~#}
+    {#                    "&filter[status][condition][memberOf]=children"#}
+    {#                %}#}
+
+    {#                <div id="vue-organization-children" class="">#}
+    {#                    <h2 v-if="hasChildren">Sub-Divisions of {{ label }}</h2>#}
+    {#                    <div class="row">#}
+
+    {#                    <ucb-promoted-children dataurl="{{ promotedChildrenURL }}" inline-template>#}
+    {#                        <div class="ucb-org-component col">#}
+    {#                            <div class="ucb-error-check" v-if="error">#}
+    {#                                <h4 class=ucb-vue-error>{{ error }} </h4>#}
+    {#                            </div>#}
+    {#                            <div class="ucb-vue-component" v-else>#}
+    {#                                <div v-for="child in posts">#}
+    {#                                    <div class="ucb-org-child ucb-panel" v-show="child.attributes.title">#}
+    {#                                        <a :href="`{{ url('<front>')|render|trim('/') }}${child.attributes.path.alias}`"><strong class="ucb-org-child-title" v-html="child.attributes.title"></strong></a>#}
+    {#                                        <ul class="ucb-org-children-contact list-style-none">#}
+    {#                                            <li v-if="child.attributes.field_ucb_org_email"><i class="fas fa-envelope"></i> <a :href="`mailto:${child.attributes.field_ucb_org_email}`" v-html="child.attributes.field_ucb_org_email"></a>  </li>#}
+    {#                                            <li v-if="child.attributes.field_ucb_org_telephone"><i class="fas fa-phone-alt"></i> <a :href="`tel:${child.attributes.field_ucb_org_telephone}`" v-html="child.attributes.field_ucb_org_telephone"></a></li>#}
+    {#                                            <li v-if="child.attributes.field_ucb_org_website_url"><i class="fas fa-phone-laptop"></i> <a :href="`${child.attributes.field_ucb_org_website_url.uri}`">Homepage</a></li>#}
+    {#                                        </ul>#}
+    {#                                    </div>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    </ucb-promoted-children>#}
+    {#                    <ucb-standard-children dataurl="{{ standardChildrenURL }}" inline-template>#}
+    {#                        <div class="ucb-org-component col">#}
+    {#                            <div class="ucb-error-check" v-if="error">#}
+    {#                                <h4 class=ucb-vue-error>{{ error }} </h4>#}
+    {#                            </div>#}
+    {#                            <div class="ucb-vue-component" v-else>#}
+    {#                                <div v-for="child in posts">#}
+    {#                                    <div class="ucb-org-child ucb-panel" v-show="child.attributes.title">#}
+    {#                                        <a :href="`{{ url('<front>')|render|trim('/') }}${child.attributes.path.alias}`"><strong class="ucb-org-child-title" v-html="child.attributes.title"></strong></a>#}
+    {#                                        <ul class="ucb-org-children-contact list-style-none">#}
+    {#                                            <li v-if="child.attributes.field_ucb_org_email"><i class="fas fa-envelope"></i> <a :href="`mailto:${child.attributes.field_ucb_org_email}`" v-html="child.attributes.field_ucb_org_email"></a>  </li>#}
+    {#                                            <li v-if="child.attributes.field_ucb_org_telephone"><i class="fas fa-phone-alt"></i> <a :href="`tel:${child.attributes.field_ucb_org_telephone}`" v-html="child.attributes.field_ucb_org_telephone"></a></li>#}
+    {#                                            <li v-if="child.attributes.field_ucb_org_website_url"><i class="fas fa-phone-laptop"></i> <a :href="`${child.attributes.field_ucb_org_website_url.uri}`">Homepage</a></li>#}
+    {#                                        </ul>#}
+    {#                                    </div>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    </ucb-standard-children>#}
+    {#                </div>#}
+    {#                </div>#}
+
+    {#            </div>#}
+    {#        </div>#}
+  </div>
+
+</article>
+

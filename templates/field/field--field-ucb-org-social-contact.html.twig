@@ -1,0 +1,102 @@
+{#
+/**
+ * Theme layout to display a UCB Organization Social Contact field.
+ *
+ * Created by jsparks on 7/8/19
+ */
+#}
+
+{% for item in items %}
+
+    {% set socialLink = item.content['#url']|render|striptags|trim %}
+    {% set socialTitle = item.content['#title']|render|striptags|trim %}
+
+    {# if there's no custom title you'll get the URL in the title field #}
+    {% if socialLink == socialTitle %}
+        {% set socialTitle = '' %}
+    {% endif %}
+
+    <li class="ucb-org-social-link">
+        {% if 'FACEBOOK' in socialLink|upper %}
+          <i class="fab fa-facebook-f"></i>
+          <a href="{{ socialLink }}" class="ucb-org-social-link" title="FaceBook">
+                {% if socialTitle|render %}
+                    {{ socialTitle }}
+                {% else %}
+                    Facebook
+                {% endif %}
+            </a>
+
+        {% elseif 'TWITTER' in socialLink|upper %}
+          <i class="fab fa-twitter"></i>
+          <a href="{{ socialLink }}" class="ucb-org-social-link" title="Twitter">
+                {% if socialTitle|render %}
+                    {{ socialTitle }}
+                {% else %}
+                    Twitter
+                {% endif %}
+            </a>
+
+        {% elseif 'FLICKR' in socialLink|upper %}
+          <i class="fab fa-flickr"></i>
+          <a href="{{ socialLink }}" class="ucb-org-social-link" title="Flickr">
+                {% if socialTitle|render %}
+                    {{ socialTitle }}
+                {% else %}
+                    Flickr
+                {% endif %}
+            </a>
+
+        {% elseif 'LINKEDIN' in socialLink|upper %}
+          <i class="fab fa-linkedin"></i>
+          <a href="{{ socialLink }}" class="ucb-org-social-link" title="LinkedIn">
+                {% if socialTitle|render %}
+                    {{ socialTitle }}
+                {% else %}
+                    LinkedIn
+                {% endif %}
+            </a>
+
+        {% elseif 'YOUTUBE' in socialLink|upper %}
+          <i class="fab fa-youtube"></i>
+          <a href="{{ socialLink }}" class="ucb-org-social-link" title="YouTube">
+                {% if socialTitle|render %}
+                    {{ socialTitle }}
+                {% else %}
+                    YouTube
+                {% endif %}
+            </a>
+        {% elseif 'INSTAGRAM' in socialLink|upper %}
+          <i class="fab fa-instagram"></i>
+          <a href="{{ socialLink }}" class="ucb-org-social-link" title="Instagram">
+                {% if socialTitle|render %}
+                    {{ socialTitle }}
+                {% else %}
+                    Instagram
+                {% endif %}
+            </a>
+        {% elseif 'EVENTS' in socialLink|upper or 'CALENDAR' in socialLink|upper %}
+          <i class="fas fa-calendar-alt"></i>
+          <a href="{{ socialLink }}" class="ucb-org-social-link" title="Events">
+                {% if socialTitle|render %}
+                    {{ socialTitle }}
+                {% else %}
+                    Events
+                {% endif %}
+            </a>
+
+
+        {%  else %}
+          <i class="fas fa-user-friends"></i>
+          <a href="{{ socialLink }}" class="ucb-org-social-link" title="Social Media">
+                {% if socialTitle|render %}
+                    {{ socialTitle }}
+                {% else %}
+                    Social Media
+                {% endif %}
+            </a>
+        {% endif %}
+
+        {#{{ link(socialLink, socialLink) }}#}
+    </li>
+{% endfor %}

@@ -1,0 +1,102 @@
+{#
+/**
+ * Theme layout to display a UCB Incident Page.
+ *
+ * Created by jsparks on 11/21/19
+ */
+#}
+
+{{ attach_library('ucb2021_base/ucb-incident-page') }}
+
+{%
+  set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+]
+%}
+
+{#Dummy variable to ensure that all content tags are set for caching purposes#}
+{% set content_render = content|render %}
+
+{% set incidentURL =
+  url('<front>')|render|trim('/') ~
+  "/jsonapi/node/ucb_incident/" ~ uuid
+%}
+
+{% set updatesURL=
+  url('<front>')|render|trim('/') ~
+  "/jsonapi/paragraph/ucb_incident_update/"
+%}
+
+
+{#  "?filter[self][group][conjunction]=AND" ~#}
+
+{#  "&filter[self-filter][condition][path]=field_ucb_guide_organization.id" ~#}
+{#  "&filter[self-filter][condition][operator]=CONTAINS" ~#}
+{#  "&filter[self-filter][condition][value]="~ uuid  ~#}
+{#  "&filter[self-filter][condition][memberOf]=self"#}
+
+<article{{attributes.addClass(classes)}}>
+  <div class="container ucb-incident-container vue-incident-main">
+    {% if content.field_ucb_incident_cta_body|render %}
+      <div class="ucb-incident-cta-section row">
+        <div class="ucb-incident-cta-content col-md col-sm-12">
+          {{ content.field_ucb_incident_cta_body }}
+
+          {% if content.field_ucb_incident_cta_links|render %}
+            <ul class="ucb-incident-cta-links">
+              {{ content.field_ucb_incident_cta_links }}
+            </ul>
+          {% endif %}
+        </div>
+        {% if content.field_ucb_incident_cta_image|render %}
+          <div class="col-md col-sm-12 ucb-incident-cta-image-col">
+            {{ content.field_ucb_incident_cta_image }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="ucb-incident-row row">
+      {#      <h1>{{ label }}</h1>#}
+      {% if content.field_ucb_incident_type[0]['#taxonomy_term'].field_ucb_incident_sidebar_boil[0].value|render or content.field_ucb_incident_sidebar_body|render %}
+        <div class="ucb-incident-event-col col-sm-12 col-md-8 col-lg-9">
+{#          {% include "@ucb2021_base/includes/ucb-incident-update-webcomponent.html.twig" %}#}
+{#          <ucb-incident-factory nodeuuid="{{ uuid }}" fronturl="{{ url('<front>') }}" inline-template>#}
+{#            <div>#}
+{#              <h3>Updates Go Here...</h3>#}
+{#            </div>#}
+{#          </ucb-incident-factory>#}
+          {{ content.field_ucb_incident_events }}
+        </div>
+        <div class="ucb-incident-sidebar col-sm-12 col-md-4 col-lg-3">
+          {% if content.field_ucb_incident_sidebar_body|render %}
+            {{ content.field_ucb_incident_sidebar_body }}
+          {% endif %}
+          {% if content.field_ucb_incident_type[0]['#taxonomy_term'].field_ucb_incident_sidebar_boil[0].value|render %}
+            {{ content.field_ucb_incident_type }}
+          {% endif %}
+        </div>
+      {% else %}
+{#        <h4>Id is {{ uuid }}</h4><br>#}
+{#        {% include "@ucb2021_base/includes/ucb-incident-update-webcomponent.html.twig" %}#}
+
+        <ucb-incident-factory nodeuuid="{{ uuid }}" fronturl="{{ url('<front>') }}" inline-template>
+          <div>
+            <h3>Updates Go Here...</h3>
+          </div>
+        </ucb-incident-factory>
+        {{ content.field_ucb_incident_events }}
+      {% endif %}
+      {#        {{ content.field_ucb_incident_type[0]['#taxonomy_term'].field_ucb_incident_sidebar_boil[0].value|raw }}#}
+      {#        <ol>#}
+      {#          {% for key, value in content.field_ucb_incident_type[0]['#taxonomy_term'].field_ucb_incident_sidebar_boil[0].value  %}#}
+      {#            <li>{{ key }}</li>#}
+      {#          {% endfor %}#}
+      {#        </ol>#}
+    </div>
+  </div>
+</article>

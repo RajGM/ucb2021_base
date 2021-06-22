@@ -1,0 +1,70 @@
+{#
+/**
+ * Theme layout to display a UCB Guide Page.
+ *
+ * Created by jsparks on 9/4/19
+ */
+#}
+
+{{ attach_library('ucb2021_base/ucb-guide-page') }}
+
+{%
+  set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+]
+%}
+
+{#Dummy variable to ensure that all content tags are set for caching purposes#}
+{% set content_render = content|render %}
+
+<article{{attributes.addClass(classes)}}>
+  <div class="ucb-guide-page container">
+
+    {% if content.field_ucb_guide_body|render or content.field_ucb_guide_organization|render %}
+    <section class="ucb-guide-meta">
+      <div class="ucb-guide-meta-row row">
+        <div class="ucb-guide-body col-md-12 col-lg-8">
+          {% if content.field_ucb_guide_body|render %}
+            {{ content.field_ucb_guide_body|render }}
+          {% endif %}
+        </div>
+        <div class="ucb-guide-org-details col-md-12 col-lg-4">
+          {% if content.field_ucb_guide_organization|render %}
+            {{ content.field_ucb_guide_organization|render }}
+          {% endif %}
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+    {% if content.field_ucb_guide_howtos|render or content.field_ucb_guide_content_row|render%}
+    <div class="ucb-guide-jump-nav">
+      <ul id="ucb-jump-nav" class="ucb-guide-jump-list">
+        {% if content.field_ucb_guide_howtos|render %}
+          <li><a href="#howto">How To</a></li>
+        {% endif %}
+      </ul>
+    </div>
+    {% endif %}
+
+    {% if content.field_ucb_guide_howtos|render %}
+      <section id="howto" class="ucb-guide-how-tos-section">
+        <h2>How to ... </h2>
+        <div class="ucb-guide-howto-row row">
+          {{ content.field_ucb_guide_howtos|render }}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if content.field_ucb_guide_content_row|render %}
+      <section class="ucb-guide-additional-content">
+        {{ content.field_ucb_guide_content_row|render }}
+      </section>
+    {% endif %}
+  </div>
+</article>

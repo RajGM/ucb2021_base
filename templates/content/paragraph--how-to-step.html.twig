@@ -1,0 +1,19 @@
+{#
+/**
+ * Theme layout to display a UCB How To Step -- Paragraph.
+ *
+ * Created by jsparks on 08/27/2019
+ */
+#}
+
+<h2 class="ucb-how-to-title">
+  {{ content.field_ucb_howto_step_title|render }}
+</h2>
+<div class="row">
+  {{ content.field_ucb_howto_step_instruction|render }}
+
+{% if content.field_ucb_howto_step_image|render %}
+    {{ content.field_ucb_howto_step_image }}
+{% endif %}
+</div>
+

@@ -1,0 +1,154 @@
+.ucb-org-organization-container h2 {
+  font-size: 1.6em;
+}
+
+.ucb-org-relation {
+  font-weight: bolder;
+  display: block;
+  font-size: 1.2em;
+}
+
+.ucb-org-header {
+  padding-bottom: 0.5em;
+}
+
+.ucb-org-contact-buttons-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding: 0;
+}
+
+.ucb-org-contact-buttons-list li {
+  margin-right: 1em;
+}
+
+ul.ucb-org-address-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1em;
+}
+
+ul.ucb-org-address-list > li {
+  font-weight: bolder;
+}
+
+ul.ucb-org-address-list-details {
+  list-style: none;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+ul.ucb-org-social-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  flex-direction: column;
+}
+
+.ucb-org-content-section ul li {
+  line-height: 1.65;
+}
+
+.ucb-org-children-contact-list i.fa,
+.ucb-org-children-contact-list i.fab,
+.ucb-org-children-contact-list i.fas {
+  margin-right: 0.4rem;
+}
+
+.ucb-org-organization-container li i.fa,
+.ucb-org-organization-container li i.fab,
+.ucb-org-organization-container li i.fas {
+  margin-right: 0.5rem;
+}
+
+.ucb-org-social-link a.ucb-social-link {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--ucb-link);
+}
+
+.ucb-org-map-embed {
+  position: relative;
+}
+
+.ucb-org-map-embed a {
+  border-radius: 4px;
+}
+
+.ucb-org-map-embed a .embed-map-label {
+  background: black;
+  color: var(--ucb-white);
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5px;
+  font-size: 85%;
+  border-radius: 0 0 4px 4px;
+}
+
+.ucb-org-teaser-content {
+  margin-bottom: 1em;
+}
+
+.ucb-org-teaser-content-container {
+  padding: 1em;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  background: var(--ucb-off-white);
+  height: 100%;
+}
+
+.ucb-org-child-title {
+  font-size: 1.25em;
+}
+
+.ucb-org-children-contact-list {
+  list-style: none;
+  padding-left: 1em;
+}
+
+.ucb-org-guides {
+  border-top: 1px solid #bbb;
+}
+
+.ucb-org-guide-data {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+a.ucb-org-guide-link {
+  display: flex;
+  height: 100%;
+  margin: 1em;
+  padding: 1em;
+  border: 1px solid;
+  border-radius: 4px;
+  font-weight: bolder;
+  font-size: 1.25em;
+  background: var(--ucb-off-white);
+  align-items: center;
+  flex-direction: row;
+}
+
+a.ucb-org-guide-link i.fa-2x {
+  margin-right: 0.75rem;
+}
+
+.ucb-org-organization-container {
+  padding-bottom: 1em;
+}
+
+@media screen and (max-width: 991.98px) {
+  .ucb-org-content-row {
+    margin-bottom: 2em;
+  }
+}

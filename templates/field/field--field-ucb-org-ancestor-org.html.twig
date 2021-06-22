@@ -1,0 +1,11 @@
+{#
+/**
+ * Theme layout to display a UCB Ancestor Organization field.
+ *
+ * Created by jsparks on 7/8/19
+ */
+#}
+
+{% for item in items %}
+    <span itemprop="memberOf" class="ucb-org-relation ucb-org-ancestor-org">Member of {{ item.content|render }}</span>
+{% endfor %}

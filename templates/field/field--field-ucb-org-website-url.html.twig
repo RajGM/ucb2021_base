@@ -1,0 +1,14 @@
+{#
+/**
+ * Theme layout to display a UCB Organization Website URL field.
+ *
+ * Created by jsparks on 7/8/19
+ */
+#}
+
+{% for item in items %}
+    <span itemprop="url">
+      <i class="fas fa-phone-laptop"></i>
+      <a href="{{ item.content|render|striptags|trim }}">Website</a>
+    </span>
+{% endfor %}

@@ -1,0 +1,71 @@
+ucb-global:
+  version: 1.x
+  css:
+    layout:
+      css/bootstrap/bootstrap.min.css: {}
+      css/layout.css: {}
+    theme:
+      css/style.css: {}
+      css/style-responsive.css: {}
+      css/fontawesome/fontawesome.min.css: {}
+      css/fontawesome/brands.min.css: {}
+      css/fontawesome/solid.min.css: {}
+      css/styleguide/branding.css: {}
+      css/styleguide/buttons.css: {}
+      css/styleguide/colors.css: {}
+  js:
+    js/bootstrap/bootstrap.min.js: {}
+#    js/fontawesome/brands.min.js: {}
+#    js/fontawesome/solid.min.js: {}
+#    js/fontawesome/fontawesome.min.js: {}
+    js/ucb-main.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+
+ucb-views:
+  version: 1.x
+  css:
+    theme:
+      css/ucb-views.css: {}
+
+ucb-user-login:
+  version: 1.x
+  css:
+    theme:
+      css/ucb-user-login.css: {}
+
+ucb-social-media:
+  version: 1.x
+  css:
+    theme:
+      css/social-media.css: {}
+
+ucb-external-content:
+  version: 1.x
+  css:
+    theme:
+      css/ucb-external-content.css: {}
+  js:
+    js/Vue/vue.min.js: {}
+    js/external-content.js: {}
+
+ucb-howto-page:
+  version: 1.x
+  css:
+    theme:
+      css/ucb-howto.css: {}
+
+ucb-guide-page:
+  version: 1.x
+  css:
+    theme:
+      css/ucb-guide.css: {}
+  js:
+    js/ucb-guide.js: {}
+
+ucb-page:
+  version: 1.x
+  css:
+    theme:
+      css/ucb-page.css: {}
