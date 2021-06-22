@@ -1,0 +1,30 @@
+{
+  "name": "ucb2021_base",
+  "version": "1.0.0",
+  "description": "Utilities needed for developing the CU Boulder base theme",
+  "main": "index.js",
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": ">=6.10.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stylelint": "stylelint './css/*.css' ",
+    "eslint": "eslint -c .eslintrc.json ./js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CuBoulder/ucb2021_base.git"
+  },
+  "author": "CU Boulder Web Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CuBoulder/ucb2021_base/issues"
+  },
+  "homepage": "https://github.com/CuBoulder/ucb2021_base#readme",
+  "devDependencies": {
+    "eslint": "^7.29.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0"
+  }
+}

@@ -1,0 +1,23 @@
+{
+    "root" : true,
+    "ignorePatterns": [
+      "**/bootstrap/*.js", 
+      "**/fontawesome/*.js",
+      "**/lib/*.js"
+    ],
+    "extends": "eslint:recommended",
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "rules": {
+      "indent": ["error", 2],
+      "linebreak-style": ["error", "unix"],
+      "quotes": ["error", "double"],
+      "semi": ["error", "always"]
+    },
+    "globals": {
+       "Drupal" : "readonly",
+       "jQuery" : "readonly"
+    }
+}

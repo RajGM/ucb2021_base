@@ -1,0 +1,21 @@
+{
+  "extends": "stylelint-config-standard",
+  "ignoreFiles": ["**/bootstrap", "**/fontawesome", "**/styleguide", "**/webfonts"],
+  "rules": {
+    "indentation": [
+      2,
+      {
+        "except": ["value"],
+        "severity": "error",
+        "ignore": ["param"],
+        "indentClosingBrace": false
+      }
+    ],
+    "declaration-colon-space-after": "always-single-line",
+    "declaration-colon-newline-after": "always-multi-line",
+    "no-descending-specificity": null,
+    "max-nesting-depth": 2,
+    "declaration-no-important": true,
+    "declaration-block-no-duplicate-properties": true
+  }
+}
