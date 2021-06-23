@@ -6,7 +6,7 @@
 
 ## Purpose : What purpose does this content type serve? That is what unique content will be created using this entity type.
 
-## Schema.org definition link : https://schema.org/Person
+## Schema.org definition link : https://schema.org/
 
 | Field Display Name | Multivalue | Required | Data Structure | Schema.org Field Name | Express Field Name | Express Data Structure | Notes                                 |
 | :----------------: | :--------: | :------: | :------------: | :-------------------: | :----------------: | :--------------------: | ------------------------------------- |
