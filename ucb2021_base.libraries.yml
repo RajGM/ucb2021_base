@@ -14,10 +14,7 @@ ucb-global:
       css/styleguide/buttons.css: {}
       css/styleguide/colors.css: {}
   js:
-    js/bootstrap/bootstrap.min.js: {}
-#    js/fontawesome/brands.min.js: {}
-#    js/fontawesome/solid.min.js: {}
-#    js/fontawesome/fontawesome.min.js: {}
+    js/bootstrap/bootstrap.bundle.min.js: {}
     js/ucb-main.js: {}
   dependencies:
     - core/drupal
