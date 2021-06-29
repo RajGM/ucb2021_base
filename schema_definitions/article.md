@@ -4,7 +4,7 @@
 
 ## Purpose : for time-sensitive content like news, announcements or blog posts
 
-## Schema.org definition link : https://schema.org/CreativeWork
+## Schema.org definition link : https://schema.org/Article
 
 | Field Display Name | Multivalue | Required | Data Structure | Schema.org Field Name | Express Field Name | Express Data Structure | Notes                                 |
 | :----------------: | :--------: | :------: | :------------: | :-------------------: | :----------------: | :--------------------: | ------------------------------------- |
