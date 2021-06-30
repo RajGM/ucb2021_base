@@ -11,7 +11,7 @@
  |Title | N | Y | text | Content Title | Title | Text | used by pathauto for generating URL | 
  |Body | N | N | Long text | articleBody |  |  |  | 
  |Summary | N | N | Text | abstract |  |  |  | 
- |Date Display | N | Y | list (text) |  -  |  |  | A dropdown to show or hide date. | 
+ |Date Display | N | Y | list (text) |  -  |  |  | A flag to show or hide date. | 
  |Image: Photo | Y | N | Media | image |  |  |  | 
  |Image: Thumbnail | N | N | Media | image |  |  |  | 
  |Category | Y | N | Term Reference | keywords |  |  |  | 
