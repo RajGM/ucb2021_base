@@ -4,7 +4,7 @@ Drupal 9 Base theme for CU Boulder web properties
 ## Installation
 Add below to `composer.json` require section:
 ````
-"cu-boulder/ucb2021_base"
+"cu-boulder/ucb2021_base" : "dev-main"
 ````
 
 Add to repositories section:
