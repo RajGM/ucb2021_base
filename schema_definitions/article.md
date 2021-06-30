@@ -12,8 +12,8 @@
  |Body | N | N | Long text | articleBody |  |  |  | 
  |Summary | N | N | Text | abstract |  |  |  | 
  |Date Display | N | Y | list (text) |  -  |  |  | A dropdown to show or hide date. | 
- |Image: Photo | Y | N | Image | image |  |  |  | 
- |Image: Thumbnail | N | N | image | image |  |  |  | 
+ |Image: Photo | Y | N | Media | image |  |  |  | 
+ |Image: Thumbnail | N | N | Media | image |  |  |  | 
  |Category | Y | N | Term Reference | keywords |  |  |  | 
  |Tag | Y | N | Term Reference | keywords |  |  |  | 
  |Byline | Y | N | Term Reference | author / contributor |  |  |  | 
