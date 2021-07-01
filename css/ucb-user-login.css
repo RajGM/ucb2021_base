@@ -16,20 +16,6 @@
   padding-top: 0.5rem;
 }
 
-#edit-submit {
-  background: #cfb87b;
-  border: none;
-  font-size: 1.25rem;
-  padding: 0.25em 1em;
-  border-radius: 4px;
-  margin: 0.25em 0 0 0;
-}
-
-#edit-submit:hover {
-  background: #e8dbb6;
-  box-shadow: 2px 2px 2px 0 rgba(20, 20, 20, 0.2);
-}
-
 #edit-actions {
   margin: auto;
   display: flex;

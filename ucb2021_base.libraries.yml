@@ -13,6 +13,7 @@ ucb-global:
       css/styleguide/branding.css: {}
       css/styleguide/buttons.css: {}
       css/styleguide/colors.css: {}
+      css/styleguide/type.css: {}
   js:
     js/bootstrap/bootstrap.bundle.min.js: {}
     js/ucb-main.js: {}
@@ -37,15 +38,6 @@ ucb-social-media:
   css:
     theme:
       css/social-media.css: {}
-
-ucb-external-content:
-  version: 1.x
-  css:
-    theme:
-      css/ucb-external-content.css: {}
-  js:
-    js/Vue/vue.min.js: {}
-    js/external-content.js: {}
 
 ucb-howto-page:
   version: 1.x

@@ -10,12 +10,6 @@
   --ucb-off-white: #f2f2f2;
 }
 
-html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 body {
   min-height: 100%;
   display: flex;
@@ -41,16 +35,12 @@ a:hover {
   text-decoration: none;
 }
 
-.text-left {
-  text-align: left;
+button {
+  border: none;
 }
 
-.text-right {
-  text-align: left;
-}
-
-.text-center {
-  text-align: center;
+input[type=submit] {
+  border: none;
 }
 
 .toolbar-menu a,
@@ -68,11 +58,6 @@ a:hover {
   height: auto;
   padding: 0;
   flex: 1 0 auto;
-}
-
-strong {
-  font-family: 'HelveticaNeue-Bold', sans-serif;
-  font-weight: bold;
 }
 
 .list-style-none {
