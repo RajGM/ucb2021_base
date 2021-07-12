@@ -198,10 +198,15 @@
       </div>
     {% endif %}
     <div class="container">
-      <div class="row">
+      <div class="be-boulder-container">
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
         {% if page.footer|render %}
           {{ page.footer }}
+        {% else %}
+          <p>
+            Please fill out <a href="/block/add/site_info?destination=/admin/structure/block/block-content"> this form </a> to add site information to be displayed in the footer.
+            If you already filled out this form, make sure that the block was placed in the footer region and is enabled.
+          </p>
         {% endif %}
         </div>
         <div class="col-log-4 col-md-4 col-sm-6 col-xs-12 offset-lg-4 offset-md-4">
