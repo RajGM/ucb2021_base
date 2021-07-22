@@ -72,17 +72,24 @@
       <script type="text/javascript" src="https://cdn.colorado.edu/static/brand-assets/live/js/brand-bar.js" id="ucb-brand-bar-embed" data-color="{{ campus_header_color }}"></script>
     </div>
   </div>
-  <header class="ucb {{ header_color }} margin-bottom" role="banner">
-    <div class="container">
-      <a href="{{ front_page }}">{{ site_name }}</a>
-      {% if site_slogan|render|striptags|trim %}
-        <div class="affiliation">
-          {{ site_slogan }}
-        </div>
-      {% endif %}
+  <header class="ucb {{ header_color }}" role="banner">
+    <div class="container ucb-menu-wrapper">
+      <div>
+        <a href="{{ front_page }}">{{ site_name }}</a>
+        {% if site_slogan|render|striptags|trim %}
+          <div class="affiliation">
+            {{ site_slogan }}
+          </div>
+        {% endif %}
+      </div>
+      <div class="mobile-menu-toggle">
+        <button id="mobile-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-menu" aria-label="Navigation">
+          <i class="fa fas fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
     </div>
   </header>
-  <section class="ucb-main-nav-section" role="navigation">
+  <section class="ucb-main-nav-section mobile" role="navigation">
     <div class="container ucb-main-nav-continer">
       {% if page.primary_menu|render %}
         {{ page.primary_menu }}
@@ -190,15 +197,17 @@
         {{ page.social }}
       </div>
     {% endif %}
-    {% if page.footer|render %}
-      <div class="ucb-footer-container container">
-        {{ page.footer }}
-      </div>
-    {% endif %}
     <div class="container">
-      <div class="row">
+      <div class="be-boulder-container">
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-          This is placeholder text, for the contact information about a specific site.
+        {% if page.footer|render %}
+          {{ page.footer }}
+        {% else %}
+          <p>
+            Please fill out <a href="/block/add/site_info?destination=/admin/structure/block/block-content"> this form </a> to add site information to be displayed in the footer.
+            If you already filled out this form, make sure that the block was placed in the footer region and is enabled.
+          </p>
+        {% endif %}
         </div>
         <div class="col-log-4 col-md-4 col-sm-6 col-xs-12 offset-lg-4 offset-md-4">
           <div class="ucb-footer">

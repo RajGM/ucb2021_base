@@ -27,6 +27,14 @@ function ucb2021_base_preprocess_html(array &$variables) {
 }
 
 /***
+ * Preprocess function to get the variables we'll need on the block template
+ */
+function ucb2021_base_preprocess_block(array &$variables) {
+  $config = \Drupal::config('system.site');
+  $variables['site_name'] = $config->get('name');
+}
+
+/***
  * Preprocess function to get the variables we'll need on the page template
  */
 function ucb2021_base_preprocess_page(array &$variables) {
@@ -94,27 +102,6 @@ function ucb2021_base_preprocess_region__header(array &$variables) {
 function ucb2021_base_preprocess_region__footer(array &$variables) {
   $variables['theme_path'] = base_path() . $variables['directory'];
   $variables['ucb_be_boulder'] = theme_get_setting('ucb_be_boulder');
-}
-
-/***
- * Preprocess function to get the variables we'll need on the Incident node template
- */
-function ucb2021_base_preprocess_node__ucb_incident(array &$variables) {
-  $variables['uuid'] = $variables['node']->uuid();
-}
-
-/***
- * Preprocess function to get the variables we'll need on the Incident node template
- */
-function ucb2021_base_preprocess_node__view__active_incidents(array &$variables) {
-  $variables['uuid'] = $variables['node']->uuid();
-}
-
-/***
- * Preprocess function to get the variables we'll need on the Incident Event field
- */
-function ucb2021_base_preprocess_paragraph__ucb_incident_update(array &$variables) {
-  $variables['uuid'] = $variables['paragraph']->uuid();
 }
 
 /***
