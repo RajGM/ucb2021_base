@@ -1,6 +1,11 @@
 {
   "extends": "stylelint-config-standard",
-  "ignoreFiles": ["**/bootstrap", "**/fontawesome", "**/styleguide", "**/webfonts"],
+  "ignoreFiles": [
+   "./css/bootstrap/*.min.css",
+   "./css/fontawesome/*.min.css", 
+   "./css/styleguide/*.css",
+   "./css/webfonts/*.woff2"
+  ],
   "rules": {
     "indentation": [
       2,
