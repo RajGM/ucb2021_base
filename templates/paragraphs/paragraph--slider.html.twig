@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * Theme to implement an Image Slider Paragraph
+ *
+#}
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    paragraph.field_slider_text_style.value
+  ]
+%}
+
+{# set classes for the size of the component #}
+{% if paragraph.field_size.value is same as("0") %}
+  {% set size = "size-full-width" %}
+{% elseif paragraph.field_size.value is same as("1") %}
+  {% set size = "size-large" %}
+{% else %}
+  {% set size = "size-small" %}
+{% endif %}
+
+{% set id = "carousel-" ~ paragraph.id() %}
+
+{% block paragraph %}
+  <div{{ attributes.addClass(classes).addClass(size) }}>
+    {% block content %}
+    {# <h1> {{ dump(paragraph.field_slider_slide.value) }} </h1> #}
+    <div id="{{ id }}" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        {% for i in 1..paragraph.field_slider_slide.value|length %}
+          <button type="button"
+            {% if loop.first %} class="active" {% endif %}
+            data-bs-target="#{{ id }}" data-bs-slide-to="{{ i - 1 }}" 
+            aria-label="Slide {{ i }}">
+          </button>
+        {% endfor %}
+      </div>
+      <div class="carousel-inner">
+        {# Don't render these fields #}
+        {{ content|without('field_size','field_slider_text_style') }}
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#{{ id }}" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#{{ id }}" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}
