@@ -1,0 +1,78 @@
+/*
+ * CSS for slider paragraph
+ */
+
+/* Bootstrap Carousel overrides */
+.carousel-control-next, .carousel-control-prev {
+  width: 5%;
+}
+
+/* sizes */
+
+.paragraph.paragraph--type--slider img{ 
+  width: 100%;
+  object-fit: cover;
+}
+
+.paragraph.paragraph--type--slider.size-full-width img{ 
+  max-height: 70vh;
+}
+.paragraph.paragraph--type--slider.size-large img{
+  max-height: 60vh;
+}
+.paragraph.paragraph--type--slider.size-small img{ 
+  max-height: 45vh;
+}
+
+/* text position */
+
+.paragraph.paragraph--type--slider .carousel-inner .carousel-caption {
+  position: absolute;
+  font-size: 14px;
+}
+.paragraph.paragraph--type--slider.bottom-overlay .carousel-inner .carousel-caption {
+  top: auto;
+  bottom: 0;
+  background-color: rgba(0,0,0,.7);
+  right: 0;
+  left: 0;
+}
+.paragraph.paragraph--type--slider.right-overlay .carousel-inner .carousel-caption { 
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 70%;
+  background-color: rgba(0,0,0,.7);
+  text-align: left;
+  padding: 1rem;
+}
+.paragraph.paragraph--type--slider.center-overlay .carousel-inner .carousel-caption{ 
+  top: 25%;
+  bottom: 25%;
+  margin: auto;
+  right: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.7);
+}
+.paragraph.paragraph--type--slider.right-content .carousel-inner .carousel-caption { 
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 70%;
+  background-color: var(--ucb-darker);
+  text-align: left;
+  padding: 1rem;
+}
+.paragraph.paragraph--type--slider.bottom-content .carousel-inner .carousel-caption{
+  top: auto;
+  bottom: 0;
+  background-color: var(--ucb-darker);
+  right: 0;
+  left: 0;
+}
+
+.paragraph.paragraph--type--slider .carousel-inner a:hover {
+  cursor: pointer;
+}
+
+/* media queries */
