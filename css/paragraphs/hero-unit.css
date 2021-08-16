@@ -1,0 +1,21 @@
+/*
+ * Styles for hero unit paragraph
+ * 
+ */
+
+.paragraph.paragraph--type--hero-unit {
+  font-size: 120%;
+}
+
+.paragraph.paragraph--type--hero-unit.size-full-width,
+.paragraph.paragraph--type--hero-unit.size-small {
+  padding: 100px 2rem;
+}
+
+.paragraph.paragraph--type--hero-unit.size-full-width h2 {
+  font-size: 250%;
+}
+
+.paragraph.paragraph--type--hero-unit.size-large {
+  padding: 2rem;
+}
