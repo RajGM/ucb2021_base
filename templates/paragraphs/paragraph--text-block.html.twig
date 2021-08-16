@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Theme to implement a Text block Paragraph
+ *
+#}
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'card'
+  ]
+%}
+
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+      <div class="card-body">
+        {% if paragraph.field_text_block_title.value is not empty %}
+          <h2 class="card-title"> {{ paragraph.field_text_block_title.value }} </h2>
+        {% endif %}
+        {{ content|without('field_text_block_title') }}
+      </div>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}
