@@ -26,16 +26,16 @@
 
 {# A background image will be used over a solid color #}
 {% if paragraph.field_background_image.entity.field_media_image.entity is defined %}
-  {% set bgValue = "background-image:url(#{ file_url(paragraph.field_background_image.entity.field_media_image.entity.fileuri) });background-repeat:no-repeat;background-position:center;" %}
+  {% set bgValue = "background-image:url(#{ file_url(paragraph.field_background_image.entity.field_media_image.entity.fileuri) });background-repeat:no-repeat;background-position:center;background-size:cover;" %}
 {% endif %}
 
 {# set classes for the size of the component #}
 {% if paragraph.field_size.value is same as("0") %}
   {% set size = "size-full-width" %}
 {% elseif paragraph.field_size.value is same as("1") %}
-  {% set size = "size-large" %}
-{% else %}
   {% set size = "size-small" %}
+{% else %}
+  {% set size = "size-large" %}
 {% endif %}
 
 {% block paragraph %}
@@ -43,12 +43,14 @@
     {% block content %}
       {% set linkColor = paragraph.field_link_color.value %}
       {# Dont let twig render the links #}
-      {{ content|without('field_links') }}
-      {# Render links here #}
-      {# <p> {{ dump(paragraph.field_links.value) }} </p> #}
-      {% for item in paragraph.field_links.value %}
-        <a href="{{ item.uri }}" class="button {{ linkColor }}" > {{ item.title }} </a>
-      {% endfor %}
+      <div class="container">
+        {{ content|without('field_links') }}
+        {# Render links here #}
+        {# <p> {{ dump(paragraph.field_links.value) }} </p> #}
+        {% for item in paragraph.field_links.value %}
+          <a href="{{ item.uri }}" class="button {{ linkColor }}" > {{ item.title }} </a>
+        {% endfor %}
+      </div>
     {% endblock %}
   </div>
 {% endblock paragraph %}

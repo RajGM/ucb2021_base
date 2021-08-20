@@ -5,10 +5,10 @@
 
 .paragraph.paragraph--type--hero-unit {
   font-size: 120%;
+  margin-bottom: 1em;
 }
 
-.paragraph.paragraph--type--hero-unit.size-full-width,
-.paragraph.paragraph--type--hero-unit.size-small {
+.paragraph.paragraph--type--hero-unit.size-full-width{
   padding: 100px 2rem;
 }
 
@@ -18,4 +18,9 @@
 
 .paragraph.paragraph--type--hero-unit.size-large {
   padding: 2rem;
+}
+
+.paragraph.paragraph--type--hero-unit.size-small{
+  padding: 1rem;
+  font-size: initial;
 }
