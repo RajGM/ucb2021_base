@@ -1,8 +1,7 @@
 {#
 /**
- * Theme layout to display a UCB Basic Page.
+ * Theme layout to display a Basic Page.
  *
- * Created by jsparks on 2/10/20
  */
 #}
 
@@ -19,11 +18,35 @@
 ]
 %}
 
-{#Dummy variable to ensure that all content tags are set for caching purposes#}
-{% set content_render = content|render %}
-
 <article{{attributes.addClass(classes)}}>
-  <div class="container ucb-page">
-    {{ content }}
+  {% if content.field_above_content.0 is not null %}
+    {{ content.field_above_content }}
+  {% endif %}
+  {{ drupal_block('system_breadcrumb_block') }}
+
+  <div class="container">
+    <h1{{ title_attributes }}> {{ label }} </h1>
+  </div>
+
+  <div class="container mb-4">
+    {% if content.field_left_sidebar.0 is not null %}
+    <div class="row">
+      <div class="col-sm-4">
+        {{content.field_left_sidebar }}
+      </div>
+      <div class="col-sm-8">
+        {{ content.field_above_body_block }}
+        {{ content.body }}
+        {{ content.field_below_body_block }}
+      </div>
+      {% else %}
+        {{ content.field_above_body_block }}
+        {{ content.body }}
+        {{ content.field_below_body_block }}
+      {% endif %}
+    </div>
+  </div>
+  <div class="mb-4">
+    {{ content.field_below_content }}
   </div>
 </article>
