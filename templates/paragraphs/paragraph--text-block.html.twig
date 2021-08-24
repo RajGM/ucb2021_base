@@ -17,7 +17,7 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="card-body">
+      <div class="card-body container">
         {% if paragraph.field_text_block_title.value is not empty %}
           <h2 class="card-title"> {{ paragraph.field_text_block_title.value }} </h2>
         {% endif %}
