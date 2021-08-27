@@ -68,3 +68,15 @@
     margin-bottom: 3em;
   }
 }
+
+/* Responsive menu for local tasks */
+@media screen and (max-width: 975px) {
+  .ucb-local-tasks {
+    margin-top: 39px;
+  }
+
+  .ucb-local-tasks ul {
+    justify-content: center;
+    margin: 0;
+  }
+}

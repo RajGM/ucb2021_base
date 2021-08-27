@@ -7,13 +7,10 @@
 #}
 {% block content %}
     {% if content %}
-        <div class="ucb-local-tasks">
-            <ul class="ucb-local-tasks-ul">
-                <li>
-                    <a href="#" id="ucbCloseLocalTasks" aria-label="Close Local Tasks Menu"><i class="fa-2x fas fa-window-close"></i> </a>
-                </li>
-                {{ content }}
-            </ul>
+        <div id="local-tasks-menu" class="ucb-local-tasks">
+          <div>
+            {{ content }}
+          </div>
         </div>
     {% endif %}
 {% endblock %}
