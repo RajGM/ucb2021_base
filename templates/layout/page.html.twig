@@ -60,6 +60,8 @@
   {% set header_color = 'dark' %}
 {% endif %}
 
+{# Place Local tasks here #}
+{{ drupal_block('local_tasks_block') }}
 <div class="layout-container">
   {% if user.hasPermission('access administration pages') %}
     <div class="alert alert-warning text-center ucb-admin-alert">
