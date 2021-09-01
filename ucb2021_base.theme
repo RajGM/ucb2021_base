@@ -155,6 +155,17 @@ function ucb2021_base_form_system_theme_settings_alter(&$form, \Drupal\Core\Form
     '#description'      => t("Select the color for the header background for the site information at the top of the page."),
   );
 
+  $form['ucb_sidebar_position'] = array(
+    '#type'           => 'select',
+    '#title'          => t('Where to show sidebar content on a page'),
+    '#default_value'    => 'Left',
+    '#options'        => array(
+      t('Left'),
+      t('Right'),
+    ),
+    '#description'    => t("Select if sidebar content should appear on the left or right side of a page."),
+  );
+
   $form['ucb_be_boulder'] = array(
     '#type'           => 'select',
     '#title'          => t('Where to display the Be Boulder slogan on the site.'),
