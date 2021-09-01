@@ -1,0 +1,78 @@
+{#
+/**
+* Theme layout to display a UCB Person Page.
+*
+* Created by jcsparks on 8/31/21
+*/
+#}
+
+{{ attach_library('ucb2021_base/ucb-page') }}
+{{ attach_library('ucb2021_base/ucb-person') }}
+
+{%
+set classes = [
+'node',
+'node--type-' ~ node.bundle|clean_class,
+not node.isPublished() ? 'node--unpublished',
+view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+]
+%}
+
+{#Dummy variable to ensure that all content tags are set for caching purposes#}
+{% set content_render = content|render %}
+
+<article{{attributes.addClass(classes)}}>
+    <div class="container ucb-person">
+        <div class="row ucb-person-personal">
+            <div class="col ucb-person-main">
+                <div class="ucb-person-title">
+                    {{ content.field_ucb_person_title }}
+                </div>
+                {% if content.field_ucb_person_department|render %}
+                <div class="ucb-person-dept">
+                    {{ content.field_ucb_person_department }}
+                </div>
+                {% endif %}
+                <div class="ucb-person-contact ucb-person-contact-section">
+                    {% if content.field_ucb_person_email|render %}
+                    <div class="ucb-person-email">
+                        {{ content.field_ucb_person_email }}
+                    </div>
+                    {% endif %}
+                    {% if content.field_ucb_person_phone|render %}
+                    <div class="ucb-person-phone">
+                        {{ content.field_ucb_person_phone }}
+                    </div>
+                    {% endif %}
+                    {% if content.field_ucb_person_links|render %}
+                    <div class="ucb-person-links ucb-person-contact-section">
+                        {{ content.field_ucb_person_links }}
+                    </div>
+                    {% endif %}
+                    {% if content.field_ucb_person_address|render %}
+                    <div class="ucb-person-address ucb-person-contact-section">
+                        {{ content.field_ucb_person_address }}
+                    </div>
+                    {% endif %}
+                    {% if content.field_ucb_person_office_hours|render %}
+                    <div class="ucb-person-hours ucb-person-contact-section">
+                        {{ content.field_ucb_person_office_hours }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% if content.field_ucb_person_photo|render %}
+            <div class="col ucb-person-image">
+                {{ content.field_ucb_person_photo }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="row ucb-person-other">
+            {% if content.body|render %}
+            <div class="ucb-person-body ucb-person-contact-section">
+                {{ content.body }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    </article>

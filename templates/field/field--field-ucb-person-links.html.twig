@@ -1,0 +1,89 @@
+{#
+/**
+* Theme layout to display a UCB Person Link Field.
+*
+* Created by jsparks on 9/1/21
+*/
+#}
+
+{% if items %}
+<ul class="ucb-person-links">
+    {% for item in items %}
+    {%
+    set classes = [
+    'social-media-item',
+    'person-menu-item',
+    item.is_expanded ? 'menu-item--expanded',
+    item.is_collapsed ? 'menu-item--collapsed',
+    item.in_active_trail ? 'menu-item--active-trail',
+    ]
+    %}
+    <li{{ item.attributes.addClass(classes) }}>
+
+        {% set linkTitle = item.content['#title'] %}
+        {% set linkUrl = item.content['#url'] %}
+
+        {% if 'FACEBOOK' in linkTitle|upper %}
+        <a href="{{ linkUrl }}" class="ucb-person-social-link ucb-person-facebook-link" title="FaceBook" alt="FaceBook">
+            <span class="sr-only">FaceBook</span>
+            <i class="fab fa-facebook"></i>
+            <span>{{ linkUrl }}</span>
+        </a>
+
+        {% elseif 'TWITTER' in linkTitle|upper %}
+        <a href="{{ linkUrl }}" class="ucb-person-social-link ucb-person-twitter-link" title="Twitter" alt="Twitter">
+            <span class="sr-only">Twitter</span>
+            <i class="fab fa-twitter"></i>
+            <span>{{ linkUrl }}</span>
+        </a>
+
+        {% elseif 'FLICKR' in linkTitle|upper %}
+        <a href="{{ linkUrl }}" class="ucb-person-social-link ucb-person-flickr-link" title="Flickr" alt="Flickr">
+            <span class="sr-only">Flickr</span>
+            <i class="fab fa-flickr"></i>
+            <span>{{ linkUrl }}</span>
+        </a>
+
+        {% elseif 'LINKEDIN' in linkTitle|upper %}
+        <a href="{{ linkUrl }}" class="ucb-person-social-link ucb-person-linkedin-link" title="LinkedIn" alt="LinkedIn">
+            <span class="sr-only">LinkedIn</span>
+            <i class="fab fa-linkedin"></i>
+            <span>{{ linkUrl }}</span>
+        </a>
+
+        {% elseif 'YOUTUBE' in linkTitle|upper %}
+        <a href="{{ linkUrl }}" class="ucb-person-social-link ucb-person-youtube-link" title="YouTube" alt="YouTube">
+            <span class="sr-only">YouTube</span>
+            <i class="fab fa-youtube"></i>
+            <span>{{ linkUrl }}</span>
+        </a>
+
+        {% elseif 'INSTAGRAM' in linkTitle|upper %}
+        <a href="{{ linkUrl }}" class="ucb-person-social-link ucb-person-instagram-link" title="Instagram"
+            alt="Instagram">
+            <span class="sr-only">Instagram</span>
+            <i class="fab fa-instagram"></i>
+            <span>{{ linkUrl }}</span>
+        </a>
+
+        {% else %}
+        <a href="{{ linkUrl }}" class="ucb-person-social-link ucb-person-other-link" title="Social Media"
+            alt="Social Media">
+            <span class="sr-only">Link</span>
+            <i class="fa fa-external-link"></i>
+            {% if linkTitle|render %}
+            <span>{{ linkTitle }}</span>
+            {% else %}
+            <span>{{ linkUrl }}</span>
+            {% endif %}
+        </a>
+
+
+        {% endif %}
+
+        {#{{ link(item.title, item.url) }}#}
+
+        </li>
+        {% endfor %}
+</ul>
+{% endif %}
