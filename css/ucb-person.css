@@ -1,22 +1,22 @@
 div.ucb-person-image img {
-    width: auto;
-    max-height: 300px;
-    border-radius: 2px;
+  width: auto;
+  max-height: 300px;
+  border-radius: 2px;
 }
 
 ul.ucb-person-email-address,
 ul.ucb-person-links,
 ul.ucb-person-phone-numbers {
-    list-style: none;
-    padding: 0;
-    color: #aaa;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  color: #aaa;
+  margin: 0;
 }
 
 .ucb-person-contact-section {
-    margin-top: 0.5em;
+  margin-top: 0.5em;
 }
 
 .ucb-person-contact p {
-    margin: 0;
+  margin: 0;
 }
