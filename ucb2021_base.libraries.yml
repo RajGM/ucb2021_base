@@ -58,3 +58,9 @@ ucb-page:
   css:
     theme:
       css/ucb-page.css: {}
+
+ucb-person:
+  version: 1.x
+  css:
+    theme:
+      css/ucb-person.css: {}
