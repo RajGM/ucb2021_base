@@ -22,10 +22,10 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 {% set content_render = content|render %}
 
 <article{{attributes.addClass(classes)}}>
-    <div class="container ucb-person">
+    <div class="container ucb-person" itemscope itemtype="https://schema.org/Person">
         <div class="row ucb-person-personal">
             <div class="col ucb-person-main">
-                <div class="ucb-person-title">
+                <div class="ucb-person-title" itemprop="jobTitle">
                     {{ content.field_ucb_person_title }}
                 </div>
                 {% if content.field_ucb_person_department|render %}
@@ -33,14 +33,14 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
                     {{ content.field_ucb_person_department }}
                 </div>
                 {% endif %}
-                <div class="ucb-person-contact ucb-person-contact-section">
+                <div class="ucb-person-contact ucb-person-contact-section" itemprop="email">
                     {% if content.field_ucb_person_email|render %}
                     <div class="ucb-person-email">
                         {{ content.field_ucb_person_email }}
                     </div>
                     {% endif %}
                     {% if content.field_ucb_person_phone|render %}
-                    <div class="ucb-person-phone">
+                    <div class="ucb-person-phone" itemprop="telephone">
                         {{ content.field_ucb_person_phone }}
                     </div>
                     {% endif %}
@@ -50,7 +50,7 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
                     </div>
                     {% endif %}
                     {% if content.field_ucb_person_address|render %}
-                    <div class="ucb-person-address ucb-person-contact-section">
+                    <div class="ucb-person-address ucb-person-contact-section" itemprop="address">
                         {{ content.field_ucb_person_address }}
                     </div>
                     {% endif %}
@@ -62,7 +62,7 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
                 </div>
             </div>
             {% if content.field_ucb_person_photo|render %}
-            <div class="col ucb-person-image">
+            <div class="col ucb-person-image" itemprop="image">
                 {{ content.field_ucb_person_photo }}
             </div>
             {% endif %}
