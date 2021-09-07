@@ -6,12 +6,10 @@
 
 ( $ => {
   $(document).ready(() => {
-    // handler to close the local tasks (edit, revisions, clone, etc...)
-    $("a#ucbCloseLocalTasks").click(e => {
-      e.preventDefault();
-      $(".ucb-local-tasks").hide();
-    });
-
+    // Handle the Local Actions menu at top
+    if($("#local-tasks-menu").length > 0){
+      $(".layout-container").addClass("local-tasks-present");
+    }
     // Handle the responsive menu
     $("#mobile-toggle").click(() => {
       const menuHeight = $(".ucb-main-menu.nav").height() + $(".ucb-menu.nav").height() + "px";

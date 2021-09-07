@@ -63,6 +63,10 @@ input[type="submit"] {
   flex: 1 0 auto;
 }
 
+.layout-container.local-tasks-present {
+  margin-top: 32px;
+}
+
 .list-style-none {
   list-style: none;
   padding-left: 0;
@@ -260,56 +264,46 @@ li.main-menu-item a.nav-link.active {
   font-weight: normal;
 }
 
-/**** Local Tasks *****/
+/****** Local Tasks ********/
 .ucb-local-tasks {
   position: fixed;
-  z-index: 100;
-  right: 10%;
-}
-
-ul.ucb-local-tasks-ul {
-  list-style: none;
+  top: 0;
+  width: 100%;
+  background-color: var(--ucb-darker);
+  z-index: 1;
+  height: 32px;
   padding: 0;
   margin: 0;
 }
 
-ul.ucb-local-tasks-ul li {
-  background: transparent;
+.ucb-local-tasks ul {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.ucb-local-tasks ul li {
+  width: 100px;
+  padding: 0.25em;
   text-align: center;
-  padding-top: 0.5em;
-  border-radius: 8px 8px 0 0;
-  border: 1px solid #0077c0;
-  border-bottom: none;
+  background-color: inherit;
+  color: inherit;
 }
 
-ul.ucb-local-tasks-ul li a {
-  color: #0077c0;
+.ucb-local-tasks ul li:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: background-color 200ms;
 }
 
-ul.ucb-local-tasks-ul ul {
-  list-style: none;
-  background: transparent;
-  width: fit-content;
-  padding: 0 1em 1em 1em;
-  z-index: 100;
-  border-radius: 0 0 8px 8px;
-  margin-top: -0.5em;
-  border: 1px solid #0077c0;
-  border-top: none;
+.ucb-local-tasks li > a {
+  color: var(--ucb-light-contrast);
 }
 
-ul.ucb-local-tasks-ul:hover ul,
-ul.ucb-local-tasks-ul:hover li {
-  background: #d8d8d8;
-}
-
-ul.ucb-local-tasks-ul ul li a {
-  color: #0077c0;
-}
-
-ul.ucb-local-tasks-ul ul li {
-  margin: 0.5em;
-  border: none;
+.ucb-local-tasks li > a:hover {
+  color: #fff;
 }
 
 /********* Footer ***********/
