@@ -18,6 +18,8 @@
 ]
 %}
 
+{% set sidebar_position = drupal_config('ucb2021_base.settings', 'ucb_sidebar_position') %}
+
 <article{{attributes.addClass(classes)}}>
   {% if content.field_above_content.0 is not null %}
     {{ content.field_above_content }}
@@ -29,16 +31,25 @@
   </div>
 
   <div class="container mb-4">
-    {% if content.field_left_sidebar.0 is not null %}
+    {% if content.field_sidebar.0 is not null %}
     <div class="row">
-      <div class="col-sm-4">
-        {{content.field_left_sidebar }}
-      </div>
-      <div class="col-sm-8">
-        {{ content.field_above_body_block }}
-        {{ content.body }}
-        {{ content.field_below_body_block }}
-      </div>
+      {# Left sidebar is present #}
+      {% if sidebar_position is same as("0") %}
+        <div class="col-sm-4">
+          {{content.field_sidebar }}
+        </div>
+      {% endif %}
+        <div class="col-sm-8">
+          {{ content.field_above_body_block }}
+          {{ content.body }}
+          {{ content.field_below_body_block }}
+        </div>
+      {# Right sidebar is present #}
+      {% if sidebar_position is same as("1") %}
+        <div class="col-sm-4">
+          {{content.field_sidebar }}
+        </div>
+      {% endif %}
       {% else %}
         {{ content.field_above_body_block }}
         {{ content.body }}
