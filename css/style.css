@@ -1,13 +1,16 @@
 /**** GLOBAL STYLES ******/
 :root {
   --ucb-gold: #cfb87b;
-  --ucb-link: #006db1;
+  --ucb-link: #0277bd;
   --ucb-link-visited: #e51c23;
   --ucb-white: #fff;
   --ucb-black: #222;
   --ucb-darker: #333;
   --ucb-light-contrast: #e7e7e7;
   --ucb-off-white: #f2f2f2;
+  --ucb-dark-gray: #424242;
+  --ucb-light-gray: #eee;
+  --ucb-light-blue: #e1f5fe;
 }
 
 body {
@@ -39,7 +42,7 @@ button {
   border: none;
 }
 
-input[type=submit] {
+input[type="submit"] {
   border: none;
 }
 
@@ -71,33 +74,33 @@ input[type=submit] {
 
 /********* Fonts *************/
 @font-face {
-  font-family: 'HelveticaNeue';
-  src: url('../fonts/HelveticaNeueLTW05-55Roman.woff2') format('woff2');
+  font-family: "HelveticaNeue";
+  src: url("../fonts/HelveticaNeueLTW05-55Roman.woff2") format("woff2");
   font-weight: normal;
 }
 
 @font-face {
-  font-family: 'HelveticaNeue';
-  src: url('../fonts/HelveticaNeueLTW05-75Bold.woff2') format('woff2');
+  font-family: "HelveticaNeue";
+  src: url("../fonts/HelveticaNeueLTW05-75Bold.woff2") format("woff2");
   font-weight: bold;
 }
 
 @font-face {
-  font-family: 'HelveticaNeue-CondensedBold';
-  src: url('../fonts/HelveticaNeueLTW05-77BoldCn.woff2') format('woff2');
+  font-family: "HelveticaNeue-CondensedBold";
+  src: url("../fonts/HelveticaNeueLTW05-77BoldCn.woff2") format("woff2");
 }
 
 .ucb-helvetica-bold {
-  font-family: 'HelveticaNeue', sans-serif;
+  font-family: "HelveticaNeue", sans-serif;
   font-weight: bold;
 }
 
 .ucb-helvetica-condensed-bold {
-  font-family: 'HelveticaNeue-CondensedBold', HelveticaNeue, sans-serif;
+  font-family: "HelveticaNeue-CondensedBold", HelveticaNeue, sans-serif;
 }
 
 .ucb-helvetica {
-  font-family: 'HelveticaNeue', sans-serif;
+  font-family: "HelveticaNeue", sans-serif;
 }
 
 .font-white {
@@ -228,12 +231,12 @@ li.main-menu-item a.nav-link.active {
   margin: 0.75rem 0 0;
   background: transparent;
   border-radius: 0;
-  float: left;
   padding: 0 0 0.25em;
   font-weight: normal;
   list-style: none;
   width: fit-content;
   line-height: 1em;
+  display: inline-block;
 }
 
 .ucb-breadcrumb nav {
@@ -301,11 +304,6 @@ li.main-menu-item a.nav-link.active {
 
 .ucb-local-tasks li > a:hover {
   color: #fff;
-}
-
-/********* Title ***********/
-.ucb-page-title.container {
-  padding: 1em 0.5em 0.25em 0.5em;
 }
 
 /********* Footer ***********/

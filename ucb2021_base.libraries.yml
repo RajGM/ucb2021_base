@@ -21,6 +21,14 @@ ucb-global:
     - core/drupal
     - core/jquery
 
+ucb-paragraphs:
+  version: 1.x
+  css:
+    theme:
+      css/paragraphs/hero-unit.css: {}
+      css/paragraphs/slider.css: {}
+      css/paragraphs/text-block.css: {}
+
 ucb-views:
   version: 1.x
   css:
