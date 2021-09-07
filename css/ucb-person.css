@@ -1,3 +1,12 @@
+h1.ucb-person-name {
+  display: flex;
+  flex-direction: row;
+}
+
+h1.ucb-person-name span {
+  margin-right: 0.25em;
+}
+
 div.ucb-person-image img {
   width: auto;
   max-height: 300px;
