@@ -47,19 +47,17 @@
 {#{% if ucb_alerts %}#}
 {#  {{ attach_library('ucb2021_base/ucb-alerts') }}#}
 {#{% endif %}#}
-{{ attach_library('ucb2021_base/ucb-social-media') }}
-
 {{ block("page_header", "page.html.twig") }}
 {{ page.highlighted }}
 {{ page.help }}
 
 <main role="main">
   <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-
+  <div class="ucb-above-content-region container">
+    {{ page.above_content }}
+  </div>
   <div class="layout-content container">
     {{ page.content }}
   </div>{# /.layout-content #}
-
 </main>
-</div>{# /.layout-container #}
 {{ block("page_footer", "page.html.twig") }}

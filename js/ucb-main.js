@@ -8,7 +8,7 @@
   $(document).ready(() => {
     // Handle the Local Actions menu at top
     if($("#local-tasks-menu").length > 0){
-      $(".layout-container").addClass("local-tasks-present");
+      $(".page-header").addClass("local-tasks-present");
     }
     // Handle the responsive menu
     $("#mobile-toggle").click(() => {
