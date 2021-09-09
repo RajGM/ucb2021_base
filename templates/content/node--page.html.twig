@@ -32,31 +32,31 @@
 
   <div class="container mb-4">
     {% if content.field_sidebar.0 is not null %}
-    <div class="row">
-      {# Left sidebar is present #}
-      {% if sidebar_position is same as("0") %}
-        <div class="col-sm-4">
-          {{content.field_sidebar }}
-        </div>
-      {% endif %}
+      <div class="row">
+        {# Left sidebar is present #}
+        {% if sidebar_position is same as("0") %}
+          <div class="col-sm-4">
+            {{content.field_sidebar }}
+          </div>
+        {% endif %}
         <div class="col-sm-8">
           {{ content.field_above_body_block }}
           {{ content.body }}
           {{ content.field_below_body_block }}
         </div>
-      {# Right sidebar is present #}
-      {% if sidebar_position is same as("1") %}
-        <div class="col-sm-4">
-          {{content.field_sidebar }}
-        </div>
-      {% endif %}
-      {% else %}
-        {{ content.field_above_body_block }}
-        {{ content.body }}
-        {{ content.field_below_body_block }}
-      {% endif %}
-    </div>
-  </div>
+        {# Right sidebar is present #}
+        {% if sidebar_position is same as("1") %}
+          <div class="col-sm-4">
+            {{content.field_sidebar }}
+          </div>
+        {% endif %}
+      </div>
+    {% else %}
+      {{ content.field_above_body_block }}
+      {{ content.body }}
+      {{ content.field_below_body_block }}
+    {% endif %}
+  </div> 
   <div class="mb-4">
     {{ content.field_below_content }}
   </div>

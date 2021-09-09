@@ -61,11 +61,8 @@
     {% set header_color = 'dark' %}
   {% endif %}
 
-
-
-{# Place Local tasks here #}
-{{ drupal_block('local_tasks_block') }}
-<div class="layout-container">
+  {{ page.header }}
+  <div class="page-header">
   {% if user.hasPermission('access administration pages') %}
     <div class="alert alert-warning text-center ucb-admin-alert">
       You are logged in with Elevated Privileges ... please be careful.
@@ -105,6 +102,7 @@
       {% endif %}
     </div>
   </section>
+  </div>
 {% endblock %}
 
 {# MAIN PAGE CONTENT #}
@@ -120,12 +118,9 @@
   <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
   <div class="layout-content">
-    {% if page.above_content|render %}
       <div class="ucb-above-content-region container">
         {{ page.above_content }}
       </div>
-    {% endif %}
-
     {% if page.left_sidebar|render or page.right_sidebar|render %}
       {% if page.left_sidebar|render %}
         <div class="ucb-layout-container container">

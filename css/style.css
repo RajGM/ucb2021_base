@@ -57,13 +57,7 @@ input[type="submit"] {
   flex-direction: column;
 }
 
-.layout-container {
-  height: auto;
-  padding: 0;
-  flex: 1 0 auto;
-}
-
-.layout-container.local-tasks-present {
+.page-header.local-tasks-present {
   margin-top: 32px;
 }
 
