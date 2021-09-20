@@ -14,6 +14,7 @@ ucb-global:
       css/styleguide/buttons.css: {}
       css/styleguide/colors.css: {}
       css/styleguide/type.css: {}
+      css/styleguide/icons.css: {}
   js:
     js/bootstrap/bootstrap.bundle.min.js: {}
     js/ucb-main.js: {}
