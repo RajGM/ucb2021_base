@@ -73,3 +73,9 @@ ucb-person:
   css:
     theme:
       css/ucb-person.css: {}
+
+ucb-article:
+  version: 1.x
+  css:
+    theme:
+      css/ucb-article.css: {}
