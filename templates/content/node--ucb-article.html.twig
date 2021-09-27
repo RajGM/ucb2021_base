@@ -1,0 +1,69 @@
+{#
+/**
+* Theme layout to display a UCB Article Page.
+*
+* Created by jcsparks on 9/23/21
+*/
+#}
+
+{{ attach_library('ucb2021_base/ucb-page') }}
+{{ attach_library('ucb2021_base/ucb-article') }}
+
+{%
+set classes = [
+'node',
+'node--type-' ~ node.bundle|clean_class,
+not node.isPublished() ? 'node--unpublished',
+view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+]
+%}
+
+{#Dummy variable to ensure that all content tags are set for caching purposes#}
+{% set content_render = content|render %}
+
+<article{{attributes.addClass(classes)}}>
+    <div class="container ucb-article" itemscope itemtype="https://schema.org/Article">
+        {{ label }}
+        <div class="ucb-article-meta">
+            <div class="ucb-article-date">
+                <i class="far fa-calendar"></i>
+                <span class="sr-only">Published:</span>
+                <span itemprop="datePublished">
+                 {{ node.published_at.value|date('F d, Y') }}
+                </span> 
+            </div>
+        {% if content.field_ucb_article_byline|render %}
+            <div class="ucb-article-byline">
+                <i class="fas fa-circle"></i> By <span class="ucb-article-author-name" itemprop="author"> 
+                    {{ content.field_ucb_article_byline|render|striptags|trim }} 
+                </span>
+            </div>
+        {% endif %}
+
+        </div>
+        {% if content.body|render %}
+            <div class="ucb-article-body" itemprop="articleBody">{{ content.body }}</div>
+        {% endif %}
+        {% if content.field_ucb_article_image|render %}
+            <div class="ucb-article-image" itemprop="image">
+                {{ content.field_ucb_article_image }}
+            </div>
+        {% endif %}
+        {% if content.field_ucb_article_categories|render %}
+            <div class="ucb-article-categories" itemprop="about">
+                <span class="sr-only">Categories:</span>
+                <div> <i class="fas fa-folder-open"></i> </div>
+                {{ content.field_ucb_article_categories }}
+            </div>
+        {% endif %}
+        {% if content.field_ucb_article_tags|render %}
+            <div class="ucb-article-tags" itemprop="keywords">
+                <div>
+                <span class="sr-only">Tags:</span>
+                <i class="fas fa-tags"></i> 
+                </div>
+                {{ content.field_ucb_article_tags }}
+            </div>
+        {% endif %}
+    </div>
+</article>
