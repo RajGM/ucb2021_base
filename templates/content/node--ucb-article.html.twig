@@ -29,11 +29,11 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
                 <i class="far fa-calendar"></i>
                 <span class="sr-only">Published:</span>
                 <span itemprop="datePublished">
-                 {{ node.published_at.value|date('M d, Y') }}
+                 {{ node.published_at.value|date('F d, Y') }}
                 </span> 
             </div>
         {% if content.field_ucb_article_byline|render %}
-            <div class="ucb-article-byline" itemprop="author">
+            <div class="ucb-article-byline">
                 <i class="fas fa-circle"></i> By <span class="ucb-article-author-name" itemprop="author"> 
                     {{ content.field_ucb_article_byline|render|striptags|trim }} 
                 </span>
