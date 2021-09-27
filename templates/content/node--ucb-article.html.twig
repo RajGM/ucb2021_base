@@ -24,11 +24,23 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 <article{{attributes.addClass(classes)}}>
     <div class="container ucb-article" itemscope itemtype="https://schema.org/Article">
         {{ label }}
+        <div class="ucb-article-meta">
+            <div class="ucb-article-date">
+                <i class="far fa-calendar"></i>
+                <span class="sr-only">Published:</span>
+                <span itemprop="datePublished">
+                 {{ node.published_at.value|date('M d, Y') }}
+                </span> 
+            </div>
         {% if content.field_ucb_article_byline|render %}
             <div class="ucb-article-byline" itemprop="author">
-                {{ content.field_ucb_article_byline }}
+                <i class="fas fa-circle"></i> By <span class="ucb-article-author-name" itemprop="author"> 
+                    {{ content.field_ucb_article_byline|render|striptags|trim }} 
+                </span>
             </div>
         {% endif %}
+
+        </div>
         {% if content.body|render %}
             <div class="ucb-article-body" itemprop="articleBody">{{ content.body }}</div>
         {% elseif content.field_ucb_article_external_url|render %}
