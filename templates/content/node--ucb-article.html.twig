@@ -43,8 +43,6 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
         </div>
         {% if content.body|render %}
             <div class="ucb-article-body" itemprop="articleBody">{{ content.body }}</div>
-        {% elseif content.field_ucb_article_external_url|render %}
-            <div class="ucb-article-link" itemprop="link">{{ content.field_ucb_article_external_url }}</div>
         {% endif %}
         {% if content.field_ucb_article_image|render %}
             <div class="ucb-article-image" itemprop="image">
