@@ -20,6 +20,10 @@ body {
   font: 16px/24px "HelveticaNeue", sans-serif;
 }
 
+main {
+  flex: 1;
+}
+
 h1,
 h2,
 h3,
