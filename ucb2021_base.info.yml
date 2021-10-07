@@ -11,6 +11,7 @@ libraries:
 
 ckeditor_stylesheets:
   - css/styleguide/type.css
+  - css/fontawesome/all.min.css
 
 regions:
   header: "Header"
