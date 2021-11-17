@@ -8,15 +8,15 @@
   margin-bottom: 1em;
 }
 
-.paragraph.paragraph--type--hero-unit.size-full-width {
+.paragraph.paragraph--type--hero-unit.size-large {
   padding: 100px 2rem;
 }
 
-.paragraph.paragraph--type--hero-unit.size-full-width h2 {
+.paragraph.paragraph--type--hero-unit.size-large h2 {
   font-size: 250%;
 }
 
-.paragraph.paragraph--type--hero-unit.size-large {
+.paragraph.paragraph--type--hero-unit.size-medium {
   padding: 2rem;
 }
 
