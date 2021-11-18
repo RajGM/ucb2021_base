@@ -17,7 +17,7 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  font: 16px/24px "HelveticaNeue", sans-serif;
+  font: 16px/24px "Roboto", sans-serif;
 }
 
 main {
@@ -29,7 +29,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "HelveticaNeue-CondensedBold", sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 a:link,
@@ -71,34 +71,18 @@ input[type="submit"] {
 }
 
 /********* Fonts *************/
-@font-face {
-  font-family: "HelveticaNeue";
-  src: url("../fonts/HelveticaNeueLTW05-55Roman.woff2") format("woff2");
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: "HelveticaNeue";
-  src: url("../fonts/HelveticaNeueLTW05-75Bold.woff2") format("woff2");
+.ucb-roboto-bold {
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
 }
 
-@font-face {
-  font-family: "HelveticaNeue-CondensedBold";
-  src: url("../fonts/HelveticaNeueLTW05-77BoldCn.woff2") format("woff2");
-}
-
-.ucb-helvetica-bold {
-  font-family: "HelveticaNeue", sans-serif;
+.ucb-roboto-condensed-bold {
+  font-family: 'Roboto Condensed', sans-serif;
   font-weight: bold;
 }
 
-.ucb-helvetica-condensed-bold {
-  font-family: "HelveticaNeue-CondensedBold", HelveticaNeue, sans-serif;
-}
-
-.ucb-helvetica {
-  font-family: "HelveticaNeue", sans-serif;
+.ucb-roboto {
+  font-family: 'Roboto', sans-serif;
 }
 
 .font-white {
@@ -194,7 +178,7 @@ li.main-menu-item a.nav-link {
 .ucb-menu a.nav-link {
   font-size: 0.85rem;
   vertical-align: baseline;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
   font-weight: 600;
   line-height: 1rem;
   margin: 0.5rem;
@@ -354,7 +338,7 @@ li.main-menu-item a.nav-link.active {
 .ucb-footer-nav-container .ucb-menu-title {
   color: white;
   font-size: 1.4rem;
-  font-family: HelveticaNeue-CondensedBold, HelveticaNeue, Helvetica, sans-serif;
+  font-family: 'Roboto Condensed', 'Roboto' sans-serif;
   font-weight: bold;
 }
 
