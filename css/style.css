@@ -17,7 +17,7 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  font: 16px/24px "Roboto", sans-serif;
+  font: 16px/24px "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 main {
@@ -29,7 +29,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 a:link,
@@ -72,17 +72,17 @@ input[type="submit"] {
 
 /********* Fonts *************/
 .ucb-roboto-bold {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
 }
 
 .ucb-roboto-condensed-bold {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
 }
 
 .ucb-roboto {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .font-white {
@@ -178,7 +178,7 @@ li.main-menu-item a.nav-link {
 .ucb-menu a.nav-link {
   font-size: 0.85rem;
   vertical-align: baseline;
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 600;
   line-height: 1rem;
   margin: 0.5rem;
@@ -338,7 +338,7 @@ li.main-menu-item a.nav-link.active {
 .ucb-footer-nav-container .ucb-menu-title {
   color: white;
   font-size: 1.4rem;
-  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+  font-family: "Roboto Condensed", 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
 }
 
