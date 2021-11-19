@@ -27,6 +27,11 @@ ul.ucb-person-phone-numbers {
   margin: 0;
 }
 
+a.ucb-person-social-link i.fa,
+a.ucb-person-social-link i.fab {
+  color: #aaa;
+}
+
 .ucb-person-contact-section {
   margin-top: 0.5em;
 }
