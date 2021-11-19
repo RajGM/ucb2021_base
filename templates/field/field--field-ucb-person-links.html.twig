@@ -27,35 +27,35 @@
         <a href="{{ linkUrl }}" class="ucb-person-social-link ucb-person-facebook-link" title="FaceBook" alt="FaceBook">
             <span class="sr-only">FaceBook</span>
             <i class="fab fa-facebook"></i>
-            <span>{{ linkUrl }}</span>
+            <span>{{ linkTitle }}</span>
         </a>
 
         {% elseif 'TWITTER' in linkTitle|upper %}
         <a href="{{ linkUrl }}" class="ucb-person-social-link ucb-person-twitter-link" title="Twitter" alt="Twitter">
             <span class="sr-only">Twitter</span>
             <i class="fab fa-twitter"></i>
-            <span>{{ linkUrl }}</span>
+            <span>{{ linkTitle }}</span>
         </a>
 
         {% elseif 'FLICKR' in linkTitle|upper %}
         <a href="{{ linkUrl }}" class="ucb-person-social-link ucb-person-flickr-link" title="Flickr" alt="Flickr">
             <span class="sr-only">Flickr</span>
             <i class="fab fa-flickr"></i>
-            <span>{{ linkUrl }}</span>
+            <span>{{ linkTitle }}</span>
         </a>
 
         {% elseif 'LINKEDIN' in linkTitle|upper %}
         <a href="{{ linkUrl }}" class="ucb-person-social-link ucb-person-linkedin-link" title="LinkedIn" alt="LinkedIn">
             <span class="sr-only">LinkedIn</span>
             <i class="fab fa-linkedin"></i>
-            <span>{{ linkUrl }}</span>
+            <span>{{ linkTitle }}</span>
         </a>
 
         {% elseif 'YOUTUBE' in linkTitle|upper %}
         <a href="{{ linkUrl }}" class="ucb-person-social-link ucb-person-youtube-link" title="YouTube" alt="YouTube">
             <span class="sr-only">YouTube</span>
             <i class="fab fa-youtube"></i>
-            <span>{{ linkUrl }}</span>
+            <span>{{ linkTitle }}</span>
         </a>
 
         {% elseif 'INSTAGRAM' in linkTitle|upper %}
@@ -63,14 +63,14 @@
             alt="Instagram">
             <span class="sr-only">Instagram</span>
             <i class="fab fa-instagram"></i>
-            <span>{{ linkUrl }}</span>
+            <span>{{ linkTitle }}</span>
         </a>
 
         {% else %}
         <a href="{{ linkUrl }}" class="ucb-person-social-link ucb-person-other-link" title="Social Media"
             alt="Social Media">
             <span class="sr-only">Link</span>
-            <i class="fa fa-external-link"></i>
+            <i class="fa fa-external-link-alt"></i>
             {% if linkTitle|render %}
             <span>{{ linkTitle }}</span>
             {% else %}
