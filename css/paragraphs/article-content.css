@@ -8,15 +8,12 @@
 }
 
 .ucb-article-content-image-left img,
-.ucb-article-content-image-right img {
-  width: auto;
-  height: 100%;
-  margin: auto;
-}
-
+.ucb-article-content-image-right img,
 .ucb-article-content-image-above img,
 .ucb-article-content-image-below img {
-  width: 100%;
-  max-height: auto;
+  width: auto;
+  height: auto;
   margin: auto;
+  max-width: 100%;
+  max-height: 100%;
 }
