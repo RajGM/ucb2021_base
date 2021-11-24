@@ -8,6 +8,10 @@
   margin-bottom: 1em;
 }
 
+.paragraph.paragraph--type--hero-unit.white-text h2 {
+  text-shadow: 3px 3px rgb(90 90 90 / 80%);
+}
+
 .paragraph.paragraph--type--hero-unit.size-large {
   padding: 100px 2rem;
 }

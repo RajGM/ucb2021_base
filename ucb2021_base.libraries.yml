@@ -24,6 +24,7 @@ ucb-paragraphs:
   version: 1.x
   css:
     theme:
+      css/paragraphs/article-content.css: {}
       css/paragraphs/hero-unit.css: {}
       css/paragraphs/slider.css: {}
       css/paragraphs/text-block.css: {}

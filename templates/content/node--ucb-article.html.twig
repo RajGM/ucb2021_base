@@ -42,13 +42,8 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
         {% endif %}
 
         </div>
-        {% if content.body|render %}
-            <div class="ucb-article-body" itemprop="articleBody">{{ content.body }}</div>
-        {% endif %}
-        {% if content.field_ucb_article_image|render %}
-            <div class="ucb-article-image" itemprop="image">
-                {{ content.field_ucb_article_image }}
-            </div>
+        {% if content.field_ucb_article_content|render %}
+            <div class="ucb-article-body">{{ content.field_ucb_article_content }}</div>
         {% endif %}
         {% if content.field_ucb_article_categories|render %}
             <div class="ucb-article-categories" itemprop="about">
