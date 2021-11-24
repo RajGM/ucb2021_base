@@ -17,6 +17,6 @@
 .ucb-article-content-image-above img,
 .ucb-article-content-image-below img {
   width: 100%;
-  max-height: auto;
+  height: auto;
   margin: auto;
 }
