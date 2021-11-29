@@ -23,3 +23,13 @@
   position: relative;
   left: calc(-1 * (100vw - 100%) / 2);
 }
+
+
+/*
+* For fixing the horizontal scroll bar from hero unit when logged in
+*/
+@media screen and (min-width: 975px) {
+  .toolbar-fixed .ucb-article-body .paragraph--type--hero-unit {
+    left: calc(-1 * (100vw - (100% - 68px)) / 2);
+  }
+}
