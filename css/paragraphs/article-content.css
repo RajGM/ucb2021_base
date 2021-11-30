@@ -21,7 +21,10 @@
 .ucb-article-body .paragraph--type--hero-unit {
   width: 100vw;
   position: relative;
-  left: calc(-1 * (100vw - 100%) / 2);
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 /*
@@ -29,6 +32,6 @@
 */
 @media screen and (min-width: 975px) {
   .toolbar-fixed .ucb-article-body .paragraph--type--hero-unit {
-    left: calc(-1 * (100vw - (100% - 68px)) / 2);
+    width: 98vw;
   }
 }
