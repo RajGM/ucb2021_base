@@ -3,14 +3,26 @@
  *
 */
 
+.ucb-article-blockquote blockquote {
+  border: none;
+  font-size: 150%;
+  line-height: 2.5;
+  text-align: left;
+}
+
+.ucb-article-blockquote i.fas {
+  float: left;
+  padding-right: 15px;
+}
+
 .ucb-article-content-image {
   text-align: center;
 }
 
-.ucb-article-content-image-left img,
-.ucb-article-content-image-right img,
-.ucb-article-content-image-above img,
-.ucb-article-content-image-below img {
+.ucb-article-content-media-left img,
+.ucb-article-content-media-right img,
+.ucb-article-content-media-above img,
+.ucb-article-content-media-below img {
   width: auto;
   height: auto;
   margin: auto;

@@ -1,0 +1,11 @@
+{#
+/**
+* Theme layout to display a article blockquote text.
+*
+* Created by jnichol on 12/3/21
+*/
+#}
+
+{% for item in items %}
+    <blockquote>{{ item|render }}</blockquote>
+{% endfor %}
