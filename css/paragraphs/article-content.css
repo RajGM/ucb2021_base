@@ -39,6 +39,11 @@
   margin-right: -50vw;
 }
 
+.ucb-article-content-media.ucb-article-content-media-above,
+.ucb-article-content-media.ucb-article-content-media-below {
+  text-align: center;
+}
+
 /*
 * For fixing the horizontal scroll bar from hero unit when logged in
 */
