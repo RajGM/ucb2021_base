@@ -423,5 +423,13 @@ li.social-media-item.menu-item {
 article img {
   width: 100%;
   height: auto;
-  padding: 1em;
+  margin-bottom: 1em;
+}
+
+article .align-right img {
+  padding-left: 1em;
+}
+
+article .align-left img {
+  padding-right: 1em;
 }
