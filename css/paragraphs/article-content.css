@@ -12,11 +12,6 @@
   color: gray;
 }
 
-.ucb-article-content-media-left,
-.ucb-article-content-media-right {
-  align-self: center;
-}
-
 .ucb-article-blockquote i.fas {
   float: left;
   padding-right: 15px;
@@ -44,6 +39,12 @@
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+}
+
+.ucb-article-content-media-left,
+.ucb-article-content-media-right {
+  align-self: center;
+  text-align: center;
 }
 
 .ucb-article-content-media.ucb-article-content-media-above,
