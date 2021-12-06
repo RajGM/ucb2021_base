@@ -1,0 +1,30 @@
+{#
+/**
+* Theme layout to display a article blockquote icon.
+*
+* Created by jnichol on 12/3/21
+*/
+#}
+
+
+{% for item in items %}
+
+    {% set quoteIcon = '<i aria-hidden="true" class="fas fa-quote-left fa-3x icon-color-gray"></i>' %}
+
+    {% if item.content|render|striptags|trim is same as("Quote") %}
+        {% set quoteIcon = '<i aria-hidden="true" class="fas fa-quote-left fa-3x icon-color-gray"></i>' %}
+    {% elseif item.content|render|striptags|trim is same as("Exclamation Mark") %}
+        {% set quoteIcon = '<i aria-hidden="true" class="fas fa-exclamation-triangle fa-3x icon-color-gray"></i>' %}
+    {% elseif item.content|render|striptags|trim is same as("Question Mark") %}
+        {% set quoteIcon = '<i aria-hidden="true" class="fas fa-question-circle fa-3x icon-color-gray"></i>' %}
+    {% elseif item.content|render|striptags|trim is same as("Lightbulb") %}
+        {% set quoteIcon = '<i aria-hidden="true" class="fas fa-lightbulb fa-3x icon-color-gray"></i>' %}
+    {% elseif item.content|render|striptags|trim is same as("Person") %}
+        {% set quoteIcon = '<i aria-hidden="true" class="fas fa-user fa-3x icon-color-gray  "></i>' %}
+    {% endif %}
+
+
+    {% if item|render %}
+        {{ quoteIcon| raw }}
+    {% endif %}
+{% endfor %}

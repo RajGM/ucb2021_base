@@ -3,14 +3,33 @@
  *
 */
 
+.ucb-article-blockquote blockquote {
+  border: none;
+  font-size: 150%;
+  line-height: 2.5;
+  text-align: left;
+  font-style: italic;
+  color: gray;
+}
+
+.ucb-article-content-media-left,
+.ucb-article-content-media-right {
+  align-self: center;
+}
+
+.ucb-article-blockquote i.fas {
+  float: left;
+  padding-right: 15px;
+}
+
 .ucb-article-content-image {
   text-align: center;
 }
 
-.ucb-article-content-image-left img,
-.ucb-article-content-image-right img,
-.ucb-article-content-image-above img,
-.ucb-article-content-image-below img {
+.ucb-article-content-media-left img,
+.ucb-article-content-media-right img,
+.ucb-article-content-media-above img,
+.ucb-article-content-media-below img {
   width: auto;
   height: auto;
   margin: auto;
@@ -25,6 +44,11 @@
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+}
+
+.ucb-article-content-media.ucb-article-content-media-above,
+.ucb-article-content-media.ucb-article-content-media-below {
+  text-align: center;
 }
 
 /*
