@@ -8,7 +8,15 @@
   font-size: 150%;
   line-height: 2.5;
   text-align: left;
+  font-style: italic;
+  color: gray;
 }
+
+.ucb-article-content-media-left, 
+.ucb-article-content-media-right {
+  align-self: center;
+}
+
 
 .ucb-article-blockquote i.fas {
   float: left;
