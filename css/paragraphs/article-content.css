@@ -12,11 +12,6 @@
   color: gray;
 }
 
-.ucb-article-content-media-left,
-.ucb-article-content-media-right {
-  align-self: center;
-}
-
 .ucb-article-blockquote i.fas {
   float: left;
   padding-right: 15px;
@@ -46,6 +41,12 @@
   margin-right: -50vw;
 }
 
+.ucb-article-content-media-left,
+.ucb-article-content-media-right {
+  align-self: center;
+  text-align: center;
+}
+
 .ucb-article-content-media.ucb-article-content-media-above,
 .ucb-article-content-media.ucb-article-content-media-below {
   text-align: center;
@@ -56,6 +57,7 @@
 */
 @media screen and (min-width: 975px) {
   .toolbar-fixed .ucb-article-body .paragraph--type--hero-unit {
-    width: 98vw;
+    width: 100vw;
+    margin-left: calc(-50vw - 34px);
   }
 }
