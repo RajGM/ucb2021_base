@@ -1,0 +1,53 @@
+{#
+/**
+ * Theme layout to display a UCB Article List Page.
+ *
+ * Created by jsparks on 12/8/21
+ */
+#}
+
+{{ attach_library('ucb2021_base/ucb-article-list') }}
+
+{%
+  set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+]
+%}
+
+{#Dummy variable to ensure that all content tags are set for caching purposes#}
+{% set content_render = content|render %}
+
+{% set articleURL =
+  url('<front>')|render|trim('/') ~
+  "/jsonapi/node/ucb_article/" ~ uuid
+%}
+
+{% set articlesURL=
+  url('<front>')|render|trim('/') ~
+  "/jsonapi/node/ucb_article/"
+%}
+
+
+{#  "?filter[self][group][conjunction]=AND" ~#}
+
+{#  "&filter[self-filter][condition][path]=field_ucb_guide_organization.id" ~#}
+{#  "&filter[self-filter][condition][operator]=CONTAINS" ~#}
+{#  "&filter[self-filter][condition][value]="~ uuid  ~#}
+{#  "&filter[self-filter][condition][memberOf]=self"#}
+
+<article{{attributes.addClass(classes)}}>
+  <div class="container ucb-article-list-container">
+    <div class="ucb-article-list-title">
+      <h1{{ title_attributes }}> {{ label }} </h1>
+    </div>
+
+    <div class="ucb-article-list-body">{{ content.body }}</div>
+
+    <h3>Coming Soon!</h3>
+  </div>
+</article>

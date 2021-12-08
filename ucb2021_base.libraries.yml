@@ -78,3 +78,11 @@ ucb-article:
   css:
     theme:
       css/ucb-article.css: {}
+
+ucb-article-list:
+  version: 1.x
+  css:
+    theme:
+      css/ucb-article-list.css: {}
+  js:
+    js/ucb-article-list.js: {}
