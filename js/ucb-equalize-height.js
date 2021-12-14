@@ -4,6 +4,7 @@ function setHeight(el, val) {
   else el.style.height = val + "px";
 }
 
+/* exported equalHeight, $el, i */
 var equalheight = function (container) {
   var currentTallest = 0,
     currentRowStart = 0,
@@ -11,6 +12,7 @@ var equalheight = function (container) {
     $el,
     topPosition = 0,
     currentDiv = 0;
+    
 
   Array.from(document.querySelectorAll(container)).forEach((el, i) => {
     el.style.height = "auto";
