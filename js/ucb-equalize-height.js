@@ -4,7 +4,8 @@ function setHeight(el, val) {
   else el.style.height = val + "px";
 }
 
-/* exported equalHeight, $el, i */
+/* exported equalHeight */
+
 var equalheight = function (container) {
   var currentTallest = 0,
     currentRowStart = 0,
