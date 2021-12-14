@@ -78,3 +78,8 @@ ucb-article:
   css:
     theme:
       css/ucb-article.css: {}
+
+ucb-content-grid:
+  version: 1.x
+  js:
+    js/ucb-equalize-height.js: {}
