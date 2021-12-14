@@ -9,7 +9,7 @@ var equalheight = function (container) {
     currentRowStart = 0,
     rowDivs = new Array(),
     $el,
-    topPosition = 0;
+    topPosition = 0,
     currentDiv = 0;
 
   Array.from(document.querySelectorAll(container)).forEach((el, i) => {
