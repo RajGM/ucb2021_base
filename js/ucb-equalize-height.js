@@ -10,16 +10,17 @@ var equalheight = function (container) {
     rowDivs = new Array(),
     $el,
     topPosition = 0;
+    currentDiv = 0;
 
   Array.from(document.querySelectorAll(container)).forEach((el, i) => {
     el.style.height = "auto";
-    topPostion = el.offsetTop;
-    if (currentRowStart != topPostion) {
+    topPosition = el.offsetTop;
+    if (currentRowStart != topPosition) {
       for (currentDiv = 0; currentDiv < rowDivs.length; currentDiv++) {
         setHeight(rowDivs[currentDiv], currentTallest);
       }
       rowDivs.length = 0;
-      currentRowStart = topPostion;
+      currentRowStart = topPosition;
       currentTallest = parseFloat(
         getComputedStyle(el, null).height.replace("px", "")
       );
