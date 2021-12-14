@@ -1,10 +1,9 @@
+/* jshint unused:vars */
 function setHeight(el, val) {
   if (typeof val === "function") val = val();
   if (typeof val === "string") el.style.height = val;
   else el.style.height = val + "px";
 }
-
-/* exported equalHeight */
 
 var equalheight = function (container) {
   var currentTallest = 0,
@@ -13,7 +12,6 @@ var equalheight = function (container) {
     $el,
     topPosition = 0,
     currentDiv = 0;
-    
 
   Array.from(document.querySelectorAll(container)).forEach((el, i) => {
     el.style.height = "auto";
