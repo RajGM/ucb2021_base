@@ -5,15 +5,15 @@ function setHeight(el, val) {
   else el.style.height = val + "px";
 }
 
-var equalheight = function (container) {
+var equalheight = function (container) { // eslint-disable-line no-use-before-define
   var currentTallest = 0,
     currentRowStart = 0,
     rowDivs = new Array(),
-    $el,
+    $el, // eslint-disable-line no-use-before-define
     topPosition = 0,
     currentDiv = 0;
 
-  Array.from(document.querySelectorAll(container)).forEach((el, i) => {
+  Array.from(document.querySelectorAll(container)).forEach((el, i) => { // eslint-disable-line no-use-before-define
     el.style.height = "auto";
     topPosition = el.offsetTop;
     if (currentRowStart != topPosition) {
