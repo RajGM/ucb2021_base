@@ -1,4 +1,4 @@
-/* jshint unused:vars */
+/*jslint unparam: true*/
 function setHeight(el, val) {
   if (typeof val === "function") val = val();
   if (typeof val === "string") el.style.height = val;
@@ -39,3 +39,4 @@ var equalheight = function (container) {
     }
   });
 };
+/*jslint unparam: false*/
