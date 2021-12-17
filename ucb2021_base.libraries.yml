@@ -28,7 +28,7 @@ ucb-paragraphs:
       css/paragraphs/hero-unit.css: {}
       css/paragraphs/slider.css: {}
       css/paragraphs/text-block.css: {}
-      
+
 ucb-views:
   version: 1.x
   css:
@@ -83,9 +83,6 @@ ucb-content-grid:
   version: 1.x
   js:
     js/ucb-equalize-height.js: {}
-
-ucb-columns-layout:
-  version: 1.x
   css:
     theme:
-      css/paragraphs/columns-grid-layout.css: {}
+      css/paragraphs/content-grid.css: {}

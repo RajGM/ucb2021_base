@@ -1,0 +1,45 @@
+/*
+ * Styles for content grid paragraph
+ *
+*/
+
+/* Overall Content Grid CSS */
+
+.grid-fill {
+  display: flex;
+  overflow: hidden;
+}
+
+.grid-fill img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+/* Card Layout CSS */
+.grid-card {
+  border: 1px solid;
+  margin-bottom: 1.5em;
+}
+
+.grid-card-text {
+  padding: 1em;
+}
+
+/* Overlay Layout CSS */
+
+.overlay-grid-image-container {
+  position: relative;
+  width: 100%;
+}
+
+.overlay-grid-image-container h3 {
+  padding: 0 0.75rem 0.75rem 0.75rem;
+  position: absolute;
+  bottom: 0;
+}
+
+.overlay-grid-image-container h3.text-white {
+  text-shadow: 3px 3px 3px rgb(20 20 20 / 80%);
+}
