@@ -33,8 +33,8 @@
 								<img itemprop="image" src="{{ file_url( item['#paragraph'].field_grid_layout_content_image.entity.field_media_image.entity.fileuri ) }}" class="grid-image" alt="{{ item['#paragraph'].field_grid_layout_content_image.entity.field_media_image.alt }}">
 							</div>
 							<div class="grid-card-text">
-								<h3>{{ item['#paragraph'].field_grid_layout_content_title.value|raw }}</h3>
-								{{ item['#paragraph'].field_grid_layout_content_text.value|raw }}
+								<h3>{{ item['#paragraph'].field_grid_layout_content_title.value|render|striptags|trim }}</h3>
+								{{ item['#paragraph'].field_grid_layout_content_text.value|render|striptags|trim }}
 							</div>
 						</div>
 					</div>

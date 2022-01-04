@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * Theme to implement the content grid's title, image, and copy
+ *
+ * Created by Joshua Nicholson on 12/13/21
+*
+#}
+
+{% for item in items %}
+    {% if content|render %}
+        {{ content }}
+    {% endif %}
+{% endfor %}

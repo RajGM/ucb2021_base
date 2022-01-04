@@ -1,0 +1,39 @@
+{#
+/**
+* @file
+* Theme to implement a the teaser layout for the content grid
+*
+* Created by Joshua Nicholson on 12/09/21
+*
+#}
+
+{# set classes for the location of the media in the component #}
+
+{% block paragraph %}
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            {% set items = content.field_teaser_alt_layout_content %}
+            {% for item in items %}
+                {% if item['#paragraph'].field_grid_layout_content_title.value|render %}
+                    {% if loop.index is even %}
+                        <div class="col-md-4">
+                            <img itemprop="image" src="{{ file_url( item['#paragraph'].field_grid_layout_content_image.entity.field_media_image.entity.fileuri ) }}" class="grid-image" alt="{{ item['#paragraph'].field_grid_layout_content_image.entity.field_media_image.alt }}">
+                        </div>
+                        <div class="col-md-8">
+                            <h3>{{ item['#paragraph'].field_grid_layout_content_title.value|render|striptags|trim }}</h3>
+                            {{ item['#paragraph'].field_grid_layout_content_text.value|render|striptags|trim }}
+                        </div>
+                    {% else %}
+                        <div class="col-md-8">
+                            <h3>{{ item['#paragraph'].field_grid_layout_content_title.value|render|striptags|trim }}</h3>
+                            {{ item['#paragraph'].field_grid_layout_content_text.value|render|striptags|trim }}
+                        </div>
+                        <div class="col-md-4">
+                            <img itemprop="image" src="{{ file_url( item['#paragraph'].field_grid_layout_content_image.entity.field_media_image.entity.fileuri ) }}" class="grid-image" alt="{{ item['#paragraph'].field_grid_layout_content_image.entity.field_media_image.alt }}">
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock paragraph %}
