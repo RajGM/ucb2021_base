@@ -71,11 +71,11 @@
 }
 
 .small-feature-one {
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
 
 .small-feature-two {
-  margin-top: .5em;
+  margin-top: 0.5em;
 }
 
 .small-feature-grid-image-container {
@@ -94,9 +94,8 @@
   .small-feature-one {
     padding-right: 0;
   }
-  
+
   .small-feature-two {
-    margin-top: .5em;
     padding-right: 0;
   }
 }
