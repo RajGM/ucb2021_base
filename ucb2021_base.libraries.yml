@@ -86,3 +86,9 @@ ucb-content-grid:
   css:
     theme:
       css/paragraphs/content-grid.css: {}
+
+ucb-content-row:
+  version: 1.x
+  css:
+    theme:
+      css/paragraphs/content-row.css: {}

@@ -116,8 +116,3 @@
 .row-content {
   margin-bottom: 1em;
 }
-
-/*** Row Alternating ***/
-.row-alternate {
-  flex-direction: row-reverse;
-}

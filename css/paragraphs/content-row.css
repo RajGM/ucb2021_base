@@ -1,0 +1,9 @@
+/*
+ * Styles for content row paragraph
+ *
+*/
+
+/*** Row Alternating ***/
+.row-alternate {
+  flex-direction: row-reverse;
+}
