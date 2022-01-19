@@ -9,47 +9,11 @@
 
 {# set classes for the location of the media in the component #}
 
-{% set items = content.field_features_layout_content %}
-
 {% block paragraph %}
     <div class="container">
         <div class="row row-cols-lg-2 row-cols-1">
-            {% for item in items %}
-                {% set largeFeatureTextColor = item['#paragraph'].field_large_feature_text_color.value %}
-                {% set smallFeatureOneTextColor = item['#paragraph'].field_first_small_feature_color.value %}
-                {% set smallFeatureTwoTextColor = item['#paragraph'].field_second_small_feature_color.value %}
-                {% set smallFeatureOneBGValue = "background-image:url(#{ file_url( item['#paragraph'].field_first_small_feature_image.entity.field_media_image.entity.fileuri ) });background-repeat:no-repeat;background-position:center;background-size:cover;" %}
-                {% set smallFeatureTwoBGValue = "background-image:url(#{ file_url( item['#paragraph'].field_second_small_feature_image.entity.field_media_image.entity.fileuri ) });background-repeat:no-repeat;background-position:center;background-size:cover;" %}
-                {% if item['#paragraph'].field_large_feature_title.value|render %}
-                {% set titleTextColor = item['#paragraph'].field_text_color.value %}
-                    <div class="col">
-                        <div class="feature-grid-image-container feature-grid-fill">
-							<img itemprop="image" src="{{ file_url( item['#paragraph'].field_large_feature_image.entity.field_media_image.entity.fileuri ) }}" class="grid-image" alt="{{ item['#paragraph'].field_grid_layout_content_image.entity.field_media_image.alt }}">
-                            <div class="feature-grid-text {{ largeFeatureTextColor }}">
-                                <h3>{{ item['#paragraph'].field_large_feature_title.value|render|striptags|trim }}</h3>
-						        <p>{{ item['#paragraph'].field_large_feature_text.value|render|striptags|trim }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row small-feature-grid">
-                        <div class="col-lg-12 small-feature-one">
-                            <div class="small-feature-grid-image-container" style={{ smallFeatureOneBGValue }}>
-                                <div class="feature-grid-text {{ smallFeatureOneTextColor }}">
-                                    <h3>{{ item['#paragraph'].field_first_small_feature_title.value|render|striptags|trim }}</h3>
-                                    <p>{{ item['#paragraph'].field_first_small_feature_text.value|render|striptags|trim }}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 small-feature-two">
-                            <div class="small-feature-grid-image-container" style={{ smallFeatureTwoBGValue }}>
-                                <div class="feature-grid-text {{ smallFeatureTwoTextColor }}">
-                                    <h3>{{ item['#paragraph'].field_second_small_feature_title.value|render|striptags|trim }}</h3>
-                                    <p>{{ item['#paragraph'].field_second_small_feature_text.value|render|striptags|trim }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
+			{% for key, item in content.field_features_layout_content if key|first != '#' %}
+                {{ item }}
             {% endfor %}
         </div>
     </div>

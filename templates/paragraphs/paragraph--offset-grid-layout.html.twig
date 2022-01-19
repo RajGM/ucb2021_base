@@ -7,42 +7,29 @@
 *
 #}
 
-{# set classes for the location of the media in the component #}
-{% set items = content.field_offset_layout_content %}
-{% set rowCount = 1 %}
-
 {% block paragraph %}
-    <div class="container">
+    <div {{ attributes.addClass('container') }}>
         <div class="row row-cols-lg-2 row-cols-1">
-            {% for item in items %}
-                {% if item['#paragraph'].field_grid_layout_content_title.value|render %}
-                    {% if (loop.index0 % 3 == 0) and (rowCount is even) %}
+            {% for key, item in content.field_offset_layout_content if key|first != '#' %}
+                    {% if (loop.index0 % 3 == 0) and ((loop.index0 is even) or (loop.index0 == 0)) %}
                         <div class="col">
                             <div class="grid-image-container-large">
-                                <img itemprop="image" src="{{ file_url( item['#paragraph'].field_grid_layout_content_image.entity.field_media_image.entity.fileuri ) }}" class="grid-image" alt="{{ item['#paragraph'].field_grid_layout_content_image.entity.field_media_image.alt }}">
+                                {{ item }}
                             </div>
-                            <h3>{{ item['#paragraph'].field_grid_layout_content_title.value|render|striptags|trim }}</h3>
-                            {{ item['#paragraph'].field_grid_layout_content_text.value|render|striptags|trim }}
                         </div>
-                    {% elseif (loop.index % 3 == 0) and (rowCount is odd) %} 
+                    {% elseif (loop.index % 3 == 0) and (loop.index != 3) and (loop.index0 is odd) %} 
                         <div class="col">
                             <div class="grid-image-container-large">
-                                <img itemprop="image" src="{{ file_url( item['#paragraph'].field_grid_layout_content_image.entity.field_media_image.entity.fileuri ) }}" class="grid-image" alt="{{ item['#paragraph'].field_grid_layout_content_image.entity.field_media_image.alt }}">
+                                {{ item }}
                             </div>
-                            <h3>{{ item['#paragraph'].field_grid_layout_content_title.value|render|striptags|trim }}</h3>
-                            {{ item['#paragraph'].field_grid_layout_content_text.value|render|striptags|trim }}
                         </div>
                     {% else %}
                         <div class="col-lg-3">
-                            <div class="grid-image-container-small grid-fill">
-                                <img itemprop="image" src="{{ file_url( item['#paragraph'].field_grid_layout_content_image.entity.field_media_image.entity.fileuri ) }}" class="grid-image" alt="{{ item['#paragraph'].field_grid_layout_content_image.entity.field_media_image.alt }}">
+                            <div class="grid-image-container-small">
+                                {{ item }}
                             </div>
-                            <h3>{{ item['#paragraph'].field_grid_layout_content_title.value|render|striptags|trim }}</h3>
-                            {{ item['#paragraph'].field_grid_layout_content_text.value|render|striptags|trim }}
                         </div>
                     {% endif %}
-                {% endif %}
-                {% set rowCount = rowCount  + 1 %}
             {% endfor %}
         </div>
     </div>
@@ -53,11 +40,11 @@
 #}
 <script>
 	window.addEventListener("load", function () {
-equalheight('.grid-image-container-small')
+equalheight('.grid-image-container-small .grid-image-container article')
 })
 window.addEventListener("resize", function () {
 setTimeout(function () {
-equalheight('.grid-image-container-small')
+equalheight('.grid-image-container-small .grid-image-container article')
 })
 })
 </script>

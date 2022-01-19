@@ -23,22 +23,14 @@
 {% endif %}
 
 {% block paragraph %}
-	<div class="container">
+	<div {{ attributes.addClass('container') }}>
 		<div class="row row-cols-lg-{{ columnNumbers }} row-cols-md-2 row-cols-1 justify-content-evenly">
-			{% for item in content.field_card_layout_content %}
-				{% if item['#paragraph'].field_grid_layout_content_title.value|render %}
-					<div class="col">
-						<div class="grid-card">
-							<div class="grid-image-container grid-fill">
-								<img itemprop="image" src="{{ file_url( item['#paragraph'].field_grid_layout_content_image.entity.field_media_image.entity.fileuri ) }}" class="grid-image" alt="{{ item['#paragraph'].field_grid_layout_content_image.entity.field_media_image.alt }}">
-							</div>
-							<div class="grid-card-text">
-								<h3>{{ item['#paragraph'].field_grid_layout_content_title.value|render|striptags|trim }}</h3>
-								{{ item['#paragraph'].field_grid_layout_content_text.value|render|striptags|trim }}
-							</div>
-						</div>
+			{% for key, item in content.field_card_layout_content if key|first != '#' %}
+				<div class="col">
+					<div class="grid-card">
+						{{ item }}
 					</div>
-				{% endif %}
+				</div>
 			{% endfor %}
 		</div>
 	</div>
@@ -49,11 +41,11 @@
 #}
 <script>
 	window.addEventListener("load", function () {
-equalheight('.grid-image-container')
+equalheight('.grid-image-container article')
 })
 window.addEventListener("resize", function () {
 setTimeout(function () {
-equalheight('.grid-image-container')
+equalheight('.grid-image-container article')
 })
 })
 
