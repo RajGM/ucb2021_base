@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Theme to implement the content grid's title, image, and copy
+ *
+ * Created by Joshua Nicholson on 12/13/21
+*
+#}
+
+
+<div class="grid-image-container grid-fill">
+    {{ content.field_grid_layout_content_image|render }}
+</div>
+<div class="grid-text-container">
+    <h3>{{content.field_grid_layout_content_title|render}}</h3>
+    {{content.field_grid_layout_content_text|render}}
+</div>
+
