@@ -21,6 +21,11 @@
   object-fit: cover;
 }
 
+.grid-fill article {
+  width: 100%;
+  height: auto;
+}
+
 .grid-fill article div {
   height: 100%;
 }
