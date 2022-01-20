@@ -11,7 +11,7 @@
 
 {% block paragraph %}
     <div class="container">
-        <div class="row row-cols-lg-2 row-cols-1">
+        <div class="row row-cols-lg-2 row-cols-1 feature-grid">
 			{% for key, item in content.field_features_layout_content if key|first != '#' %}
                 {{ item }}
             {% endfor %}
