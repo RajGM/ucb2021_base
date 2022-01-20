@@ -11,6 +11,7 @@
 .grid-fill {
   display: flex;
   overflow: hidden;
+  justify-content: center;
 }
 
 .grid-fill img {
@@ -41,6 +42,7 @@
   padding: 0 0.75rem 0.75rem 0.75rem;
   position: absolute;
   bottom: 0;
+  left: 0;
 }
 
 .overlay-grid-image-container h3.text-white {

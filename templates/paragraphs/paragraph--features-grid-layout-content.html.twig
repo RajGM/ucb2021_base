@@ -7,9 +7,9 @@
 *
 #}
 
-{% set largeFeatureTextColor = paragraph.field_first_small_feature_color.value %}
+{% set largeFeatureTextColor = paragraph.field_large_feature_text_color.value %}
 {% set smallFeatureOneTextColor = paragraph.field_first_small_feature_color.value %}
-{% set smallFeatureTwoTextColor = paragraph.field_first_small_feature_color.value %}
+{% set smallFeatureTwoTextColor = paragraph.field_second_small_feature_color.value %}
 {% set smallFeatureOneBGValue = "background-image:url(#{ file_url( paragraph.field_first_small_feature_image.entity.field_media_image.entity.fileuri ) });background-repeat:no-repeat;background-position:center;background-size:cover;" %}
 {% set smallFeatureTwoBGValue = "background-image:url(#{ file_url( paragraph.field_second_small_feature_image.entity.field_media_image.entity.fileuri ) });background-repeat:no-repeat;background-position:center;background-size:cover;" %}
     
