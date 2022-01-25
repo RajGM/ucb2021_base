@@ -60,4 +60,9 @@
     width: 100vw;
     margin-left: calc(-50vw - 34px);
   }
+
+  .toolbar-fixed .ucb-article-body .paragraph--type--hero-unit .container {
+    left: 34px;
+    position: relative;
+  }
 }
